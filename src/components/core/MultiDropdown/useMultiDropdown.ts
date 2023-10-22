@@ -11,7 +11,7 @@ import { useState } from 'react';
  * @returns {boolean} isOpen - The current state of the dropdown.
  * @returns {function} toggle - A function to toggle the dropdown state.
  */
-export default function useMultiDropdown(values) {
+export default function useMultiDropdown(values: any) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleIsOpen = () => setIsOpen(!isOpen);
   const [selected, setSelected] = useState([]);
@@ -21,7 +21,7 @@ export default function useMultiDropdown(values) {
    * @returns {Array} An array of objects representing the currently selected options.
    */
   const getSelected = () =>
-    selected.map((item) => {
+    selected.map((item: string) => {
       try {
         const set = parseInt(item.split('-')[0]);
         const value = parseInt(item.split('-')[1]);
