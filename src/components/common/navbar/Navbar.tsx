@@ -9,6 +9,7 @@ import MenuIcon from '@/components/icons/MenuIcon';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { Button } from '@/components/core';
 
 const NavMenuContext: Context<any> = createContext(undefined);
 
@@ -117,22 +118,26 @@ const NavBarLayout = (props: any) => {
             ))}
 
             {user ? (
-              <button
-                className="nav-link button-filled"
+              <Button
+                outline
+                variant="rounded"
+                size="small"
                 onClick={() => {
                   router.push('/api/auth/logout');
                   localStorage.clear();
                 }}
               >
                 Kirjaudu ulos
-              </button>
+              </Button>
             ) : (
-              <button
-                className="nav-link button-hollow"
+              <Button
+                glow
+                size="small"
+                variant="rounded"
                 onClick={() => router.push('/api/auth/login')}
               >
                 Kirjaudu
-              </button>
+              </Button>
             )}
           </div>
           <MenuButton />
