@@ -2,8 +2,8 @@ module.exports = {
   root: true,
   env: { browser: true, es2020: true },
   extends: [
+    "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:prettier/recommended",
     "plugin:security/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
@@ -15,7 +15,7 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh', 'prettier', 'jsx-a11y', 'security'],
+  plugins: ['react-refresh', 'jsx-a11y', 'security'],
   rules: {
     // Code Quality Guidelines
     'react-refresh/only-export-components': [
@@ -26,9 +26,6 @@ module.exports = {
 
     // Add more code quality and security rules as needed
     'no-console': 'error', // Prevent the use of console.log, consider using proper logging
-
-    // Styling Guidelines
-    'prettier/prettier': 'off', // Make sure the editor doesn't show errors for linting, since formatting should fix that automatically.
 
     // Accessibility Guidelines
     // Ensure your code follows accessibility best practices
