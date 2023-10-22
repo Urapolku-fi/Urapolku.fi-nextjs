@@ -1,1 +1,3 @@
-// TODO: create interface for IconProps
+interface IconProps {
+  className?: string;
+}

@@ -1,0 +1,138 @@
+.card {
+  border: #5c5c5c 1px solid;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  width: 256px;
+  height: 144px;
+
+  color: #d9d9d9;
+
+  text-transform: capitalize;
+}
+
+.plusIcon {
+  width: 20px;
+  height: 20px;
+
+  border-radius: 100%;
+
+  color: #0b0121;
+  background-color: #d9d9d9;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.content * {
+  margin: 0;
+}
+
+.content > img {
+  background-color: #ececec;
+  border-radius: 100%;
+}
+
+.content p {
+  color: #a39bb4;
+}
+
+.closeButton {
+  background-color: #d9d9d9;
+  color: #0b0121;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+
+  position: absolute;
+  top: -8px;
+  right: -8px;
+
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeIcon {
+  width: 16px;
+  height: 16px;
+  color: #0b0121;
+}
+
+@media screen and (max-width: 1200px) {
+  .card {
+    width: 177px;
+    height: 75px;
+  }
+
+  .content > img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .content h1 {
+    font-size: 12px;
+  }
+
+  .content p {
+    font-size: 10px;
+  }
+
+  .closeButton {
+    width: 20px;
+    height: 20px;
+
+    top: -5px;
+    right: -5px;
+  }
+
+  .closeIcon {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .card {
+    border: none;
+    width: 100%;
+
+    justify-content: center;
+
+    padding: 23px 0px;
+  }
+
+  .content {
+    width: 100%;
+    gap: 10px;
+    justify-content: space-evenly;
+  }
+
+  .content > img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .content h1 {
+    font-size: 16px;
+  }
+
+  .content p {
+    font-size: 14px;
+  }
+
+  .closeButton {
+    position: unset;
+  }
+}

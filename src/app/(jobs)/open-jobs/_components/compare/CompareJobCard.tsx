@@ -1,41 +1,47 @@
-import './compareJobCard.css';
+import Image from 'next/image';
+import styles from './compareJobCard.module.css';
 import Plus from '@/components/icons/Plus';
+import CloseMenu from '@/components/icons/CloseMenu';
 
-//TODO: definitely don't use null
-//TODO: icons seem to be incorrectly sized
+interface CompareJobCardProps {
+  data?: {
+    title: string;
+    field: string;
+    location: string;
+    salary: string;
+    area: string;
+    type: string;
+  };
+  removeComparedJobById: (id: number) => void;
+}
 
-const CompareJobCard = ({ data = null, empty = false, removeComparedJobById }: any) => {
+//TODO: use actual image for image
+const CompareJobCard = ({ data, removeComparedJobById }: CompareJobCardProps) => {
   return (
-    <>
-      {empty ? (
-        <div className="empty-compare-job-card">
-          <Plus />
-        </div>
-      ) : (
-        <div className="compare-job-card">
-          <div className="compare-job-card-child" />
-          <img className="compare-job-card-item" alt="" src={'/pictures/job-example-image.png'} />
-          <div className="compare-job-card-text-container">
-            <div className="compare-job-card-header">{data.title}</div>
-            <div className="full-time-container">
-              <span className="full-time-container1">
-                <p className="full-time">{data.type}</p>
-                <p className="full-time">{data.location}</p>
-              </span>
+    <div className={styles.card}>
+      {data ? (
+        <>
+          <div className={styles.content}>
+            <Image
+              alt="Example image"
+              src="/pictures/job-example-image.png"
+              width={45}
+              height={45}
+            />
+            <div>
+              <h1>{data.title}</h1>
+              <p>{data.type}</p>
+              <p>{data.location}</p>
             </div>
+            <button className={styles.closeButton}>
+              <CloseMenu className={styles.closeIcon} />
+            </button>
           </div>
-
-          <div
-            className="compare-job-card-inner"
-            onClick={() => {
-              removeComparedJobById(data.id);
-            }}
-          >
-            <img className="group-icon" alt="" src={'svg/close-icon.svg'} />
-          </div>
-        </div>
+        </>
+      ) : (
+        <Plus className={styles.plusIcon} />
       )}
-    </>
+    </div>
   );
 };
 

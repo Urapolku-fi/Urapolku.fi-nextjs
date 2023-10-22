@@ -1,0 +1,50 @@
+.compareContainer {
+  position: sticky;
+  bottom: 0px;
+  left: 0px;
+  z-index: 100;
+  padding: 68px 93px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #0b0121cc;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow: 0px -2px 7px 0px rgba(187, 155, 255, 0.15), 0px 2px 4px 0px #a39bb4;
+
+  border-radius: 20px 20px 0px 0px;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .compareContainer {
+    padding: 35px 40px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .compareContainer {
+    flex-direction: column;
+    padding-bottom: 0px;
+  }
+
+  .buttonsContainer {
+    flex-direction: row-reverse;
+    justify-content: center;
+    width: 100vw;
+    padding: 16px 0px;
+
+    box-shadow: 0px -2px 7px 0px rgba(187, 155, 255, 0.15), 0px 2px 4px 0px #a39bb4;
+  }
+}
