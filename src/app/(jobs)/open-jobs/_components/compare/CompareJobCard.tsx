@@ -11,6 +11,7 @@ interface CompareJobCardProps {
     salary: string;
     area: string;
     type: string;
+    id: number;
   };
   removeComparedJobById: (id: number) => void;
 }
@@ -33,7 +34,7 @@ const CompareJobCard = ({ data, removeComparedJobById }: CompareJobCardProps) =>
               <p>{data.type}</p>
               <p>{data.location}</p>
             </div>
-            <button className={styles.closeButton}>
+            <button onClick={() => removeComparedJobById(data.id)} className={styles.closeButton}>
               <CloseMenu className={styles.closeIcon} />
             </button>
           </div>
