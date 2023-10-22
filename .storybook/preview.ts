@@ -16,6 +16,9 @@ const preview: Preview = {
         { name: 'urapolku light', value: '#ececec' },
       ],
     },
+    nextjs: {
+      appDirectory: true,
+    }
   },
 };
 
