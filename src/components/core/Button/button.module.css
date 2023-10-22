@@ -36,9 +36,7 @@
 }
 
 .glow {
-  box-shadow:
-    0px -2px 7px 0px rgba(187, 155, 255, 0.15),
-    0px 2px 4px 0px #a39bb4;
+  box-shadow: 0px -2px 7px 0px rgba(187, 155, 255, 0.15), 0px 2px 4px 0px #a39bb4;
 }
 
 .large {
@@ -62,4 +60,46 @@
 .dark:hover {
   border-color: #0b0121;
   color: #0b0121;
+}
+
+@media screen and (max-width: 1200px) {
+  .button {
+    font-size: 12px;
+  }
+
+  .search {
+    font-size: 14px;
+  }
+
+  .large {
+    padding: 12px 59px;
+  }
+
+  .medium {
+    padding: 5px 46px;
+  }
+
+  .small {
+    padding: 7px 25px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .button {
+    font-size: 12px;
+  }
+
+  .large {
+    padding: 6px 96px;
+  }
+
+  .medium {
+    padding: 9px 42px;
+  }
+
+  .small {
+    padding: 10px 30px;
+    font-size: 10px;
+  }
 }
