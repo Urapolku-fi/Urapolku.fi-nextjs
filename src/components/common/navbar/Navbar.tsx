@@ -16,7 +16,7 @@ const NavMenuContext: Context<any> = createContext(undefined);
 const navbarMenuItems = [
   {
     text: 'Avoimet Työpaikat',
-    link: '/browse',
+    link: '/open-jobs',
   },
   {
     text: 'Jätä työpaikkailmoitus',
