@@ -1,95 +1,169 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client';
 
-export default function Home() {
+import './page.css';
+import { useEffect } from 'react';
+import getObserver from '@/components/animations/observer';
+
+export default function Page() {
+  useEffect(() => {
+    const elements = document.querySelectorAll('.hidden');
+    const observer = getObserver();
+    elements.forEach((el) => observer.observe(el));
+
+    // Clean up the observer when the component unmounts
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by deleting&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <section id="s2" className="hidden">
+        <div id="Hero-stack">
+          <div className="Small-container">
+            <div className="Title-section hidden">
+              <div className="Pill">
+                <p>Kaikki työpaikat - ja myös niiden palkat</p>
+              </div>
+              <div className="Content hidden">
+                <h1>Yhdellä haulla urapolulta löydät kaikki avoimet työpaikat.</h1>
+                <div className="Paragraph-wrapper">
+                  <p>
+                    Urapolku on työnetsimisalusta, joka tarjoaa sinulle nopean ja tehokkaan tavan
+                    löytää juuri sinulle sopivia työpaikkoja.
+                  </p>
+                </div>
+              </div>
+              <div className="Actions">
+                <button className="Download">Rekisteröidy</button>
+                <button className="Open-jobs">Avoimet työpaikat</button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      </section>
+      <section id="s3" className="hidden">
+        <div id="Content">
+          <div className="Video">
+            <img src={'/pictures/video.png'} alt="" />
+          </div>
+        </div>
+      </section>
+      <section id="s4" className="hidden">
+        <div id="Middle-section">
+          <div className="Middle-section-title">
+            <div className="Middle-title-wrapper">
+              <h2>Teemme uran löytämisestä sinulle helpompaa!</h2>
+            </div>
+            <p>
+              Check out our amazing features and experience the power of Vaultflow for yourself.
+            </p>
+          </div>
+        </div>
+        <div className="Middle-section-columns">
+          <div className="Middle-section-column">
+            <div className="Middle-section-card-wrapper">
+              <div className="Middle-section-icon-wrapper">
+                <img src="/pictures/Urapolku_AI_logo.png" alt="" />
+              </div>
+              <div className="Middle-section-card-content">
+                <h2>Urapolku AI</h2>
+                <p>
+                  Urapolku AI on innovatiivinen työkalu, joka auttaa sinua löytämään oikean urapolun
+                  hyödyntämällä tekoälyä. Urapolun avulla voit saada yksilöllisiä ja räätälöityjä
+                  suosituksia, jotka perustuvat vastaamasi 20 eri kysymykseen tulokseen. Vastausten
+                  avulla Urapolku AI arvioi kykyjäsi, kiinnostuksen kohteitasi ja tavoitteitasi
+                  urasi suhteen. Urapolku AI on suunniteltu auttamaan kaikkia, jotka haluavat löytää
+                  itselleen sopivan urapolun.
+                </p>
+              </div>
+              <div className="Middle-section-button">
+                <button>Lue lisää</button>
+              </div>
+            </div>
+          </div>
+          <div className="Middle-section-column">
+            <div className="Middle-section-card-wrapper">
+              <div className="Middle-section-icon-wrapper">
+                <img src={'/pictures/Digital-image.png'} alt="" className="" />
+              </div>
+              <div className="Middle-section-card-content">
+                <h2>Digital Credit Tokens</h2>
+                <p>
+                  Reward your customers and incentivize engagement with our innovative digital
+                  credit tokens. Our tokens can be customized to match your branding, and are a
+                  flexible and scalable way to drive customer loyalty and encourage repeat business.
+                </p>
+              </div>
+              <div className="Middle-section-button">
+                <button>View dashboard</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="s5" className="hidden">
+        <div id="Lower-container">
+          <div className="Lower-container-content">
+            <h2>Tietoa Urapolusta</h2>
+            <p>
+              Etsitpä sitten töitä tai haluat löytää uusia työntekijöitä, me tarjoamme sinulle
+              innovatiivisen ratkaisun löytää juuri sen mitä etsit: olipa kyseessä sitten uusi
+              työpaikka, taitava osaaja, suunnanmuutos, unelmatyön tavoittelu tai vaikka kesätyö.
+              Urapolullta löydät suuren valikoiman avoimia työpaikkoja, parhaat vinkit työnhakuun ja
+              kiehtovimmat tarinat työelämän koukeroista.
+            </p>
+            <button>Rekisteröidy</button>
+          </div>
+        </div>
+      </section>
+      <section id="s6" className="hidden">
+        <div id="Footer">
+          <div className="Footer-container">
+            <div className="Footer-3columns">
+              <div className="Footer-first-column">
+                <div className="Footer-link-wrapper">
+                  <h2>Contact</h2>
+                </div>
+                <div className="Footer-links">
+                  <p>Work inquires: work@vaultflow.com</p>
+                  <p>PR and speaking: press@vaultflow.com</p>
+                  <p>New business: newbusiness@vaultflow.com</p>
+                </div>
+                <div className="Footer-link-wrapper-career">
+                  <h2>Careers</h2>
+                  <p>Careers@waitflow.com</p>
+                </div>
+                <p>© 2023 Urapolku. All Rights Reserved.</p>
+              </div>
+              <div className="Footer-second-column">
+                <div className="Footer-second-link-wrapper">
+                  <h2>Address</h2>
+                  <div className="Footer-address-wrapper">
+                    <p>398 11th Street, Floor 2 San Francisco, CA 94103</p>
+                  </div>
+                </div>
+                <div className="Footer-second-link-wrapper">
+                  <h2>Socials</h2>
+                  <div className="Footer-socials">
+                    <p>Twitter</p>
+                    <p>Instagram</p>
+                    <p>Tik Tok</p>
+                  </div>
+                </div>
+              </div>
+              <div className="Footer-third-column">
+                <div className="Footer-logo-wrapper">
+                  <div className="Footer-logo">
+                    <img src={'/pictures/urapolku.png'} alt="" />
+                    <h2>Urapolku</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
