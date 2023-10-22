@@ -1,5 +1,6 @@
-import { NavBarLayout } from '@/components/common/navbar/Navbar';
 import './global.css';
+import { NavBarLayout } from '@/components/common/navbar/Navbar';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 export const metadata = {
   title: 'Next.js',
@@ -9,10 +10,12 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
-        <NavBarLayout />
-        {children}
-      </body>
+      <UserProvider>
+        <body>
+          <NavBarLayout />
+          {children}
+        </body>
+      </UserProvider>
     </html>
   );
 }

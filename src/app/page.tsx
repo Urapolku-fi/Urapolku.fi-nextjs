@@ -3,6 +3,7 @@
 import './page.css';
 import { useEffect } from 'react';
 import getObserver from '@/components/animations/observer';
+import Link from 'next/link';
 
 export default function Page() {
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div>
+    <>
       <section id="s2" className="hidden">
         <div id="Hero-stack">
           <div className="Small-container">
@@ -164,6 +165,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

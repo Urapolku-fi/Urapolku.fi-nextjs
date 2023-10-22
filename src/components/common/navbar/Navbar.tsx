@@ -8,6 +8,7 @@ import MenuIcon from '@/components/icons/MenuIcon';
 // import { useAuth0 } from '@auth0/auth0-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 const NavMenuContext: Context<any> = createContext(undefined);
 
@@ -89,8 +90,8 @@ const SideBar = () => {
 const NavBarLayout = (props: any) => {
   const [sideBarVisible, setSideBarVisible] = useState(false);
   const [navbarVisible, setNavbarVisible] = useState(true);
+  const { user, error, isLoading } = useUser();
   const router = useRouter();
-  // const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   // useEffect(() => {
   //   if (blacklistAddr.includes(router.)) setNavbarVisible(false);
@@ -115,25 +116,24 @@ const NavBarLayout = (props: any) => {
               <NavLink key={item.link} link={item.link} text={item.text} styling={item.styling} />
             ))}
 
-            {/* {isAuthenticated ? (
+            {user ? (
               <button
                 className="nav-link button-filled"
                 onClick={() => {
-                  logout({
-                    logoutParams: {
-                      returnTo: 'https://localhost:5173/',
-                    },
-                  });
+                  router.push('/api/auth/logout');
                   localStorage.clear();
                 }}
               >
                 Kirjaudu ulos
               </button>
             ) : (
-              <button className="nav-link button-hollow" onClick={() => loginWithRedirect()}>
+              <button
+                className="nav-link button-hollow"
+                onClick={() => router.push('/api/auth/login')}
+              >
                 Kirjaudu
               </button>
-            )} */}
+            )}
           </div>
           <MenuButton />
         </header>
