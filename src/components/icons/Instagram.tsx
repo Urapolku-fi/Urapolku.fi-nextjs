@@ -1,7 +1,7 @@
 function Instagram() {
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g opacity="0.9" clip-path="url(#clip0_1_11964)">
+      <g opacity="0.9" clipPath="url(#clip0_1_11964)">
         <path
           d="M0.0124512 7.37917C0.0124512 4.769 0.0124512 3.46392 0.528473 2.47053C0.963319 1.63342 1.64587 0.950868 2.48299 0.516022C3.47637 0 4.78145 0 7.39162 0H14.6333C17.2435 0 18.5485 0 19.5419 0.516022C20.379 0.950868 21.0616 1.63342 21.4964 2.47053C22.0125 3.46392 22.0125 4.769 22.0125 7.37917V14.6208C22.0125 17.231 22.0125 18.5361 21.4964 19.5295C21.0616 20.3666 20.379 21.0491 19.5419 21.484C18.5485 22 17.2435 22 14.6333 22H7.39162C4.78145 22 3.47637 22 2.48299 21.484C1.64587 21.0491 0.963319 20.3666 0.528473 19.5295C0.0124512 18.5361 0.0124512 17.231 0.0124512 14.6208V7.37917Z"
           fill="url(#paint0_radial_1_11964)"
@@ -24,10 +24,10 @@ function Instagram() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(5.85623 23.6945) rotate(-90) scale(21.8036 20.2791)"
         >
-          <stop stop-color="#FFDD55" />
-          <stop offset="0.1" stop-color="#FFDD55" />
-          <stop offset="0.5" stop-color="#FF543E" />
-          <stop offset="1" stop-color="#C837AB" />
+          <stop stopColor="#FFDD55" />
+          <stop offset="0.1" stopColor="#FFDD55" />
+          <stop offset="0.5" stopColor="#FF543E" />
+          <stop offset="1" stopColor="#C837AB" />
         </radialGradient>
         <radialGradient
           id="paint1_radial_1_11964"
@@ -37,9 +37,9 @@ function Instagram() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(-3.67267 1.58484) rotate(78.6806) scale(9.74631 40.1747)"
         >
-          <stop stop-color="#3771C8" />
-          <stop offset="0.128" stop-color="#3771C8" />
-          <stop offset="1" stop-color="#6600FF" stop-opacity="0" />
+          <stop stopColor="#3771C8" />
+          <stop offset="0.128" stopColor="#3771C8" />
+          <stop offset="1" stopColor="#6600FF" stopOpacity="0" />
         </radialGradient>
         <clipPath id="clip0_1_11964">
           <rect width="22" height="22" fill="white" />

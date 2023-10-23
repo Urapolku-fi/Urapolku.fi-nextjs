@@ -1,7 +1,6 @@
 'use client';
-// TODO: Add auth0
 
-import { useState, createContext, useContext, useEffect, Context } from 'react';
+import { useState, createContext, useContext, Context } from 'react';
 import './navbar.css';
 import MenuIcon from '@/components/icons/MenuIcon';
 // import CloseMenu from '@/components/icons/CloseMenu'; ???
@@ -28,13 +27,6 @@ const navbarMenuItems = [
   },
 ];
 
-const blacklistAddr = [
-  '/profileone',
-  '/profiletwo',
-  '/profilethree',
-  '/callback',
-  '/emponboarding',
-];
 const MenuButton = () => {
   const vizContext: any = useContext(NavMenuContext);
 
@@ -68,30 +60,32 @@ const NavLink = ({ styling = '', ...props }) => {
 };
 
 //not used for anything but useful for mobile menu when maximized
-const SideBar = () => {
-  const vizContext: any = useContext(NavMenuContext);
+// const SideBar = () => {
+//   const vizContext: any = useContext(NavMenuContext);
 
-  return (
-    <>
-      {vizContext?.sideBarVisible && (
-        <div className="sidebar-backblur" onClick={() => vizContext.setSideBarVisible(false)} />
-      )}
-      <div className={`sidebar`}>
-        <MenuButton />
-        <div className="">
-          {navbarMenuItems.map((item, i) => (
-            <NavLink key={i} link={item.link} text={item.text} />
-          ))}
-        </div>
-      </div>
-    </>
-  );
-};
+//   const hideBar = () => vizContext.setSideBarVisible(false);
+
+//   return (
+//     <>
+//       {vizContext?.sideBarVisible && (
+//         <button className="sidebar-backblur" onClick={hideBar}>a</button>
+//       )}
+//       <div className={`sidebar`}>
+//         <MenuButton />
+//         <div className="">
+//           {navbarMenuItems.map((item, i) => (
+//             <NavLink key={i} link={item.link} text={item.text} />
+//           ))}
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
 
 const NavBarLayout = (props: any) => {
   const [sideBarVisible, setSideBarVisible] = useState(false);
-  const [navbarVisible, setNavbarVisible] = useState(true);
-  const { user, error, isLoading } = useUser();
+  const [navbarVisible] = useState(true);
+  const { user } = useUser();
   const router = useRouter();
 
   // useEffect(() => {
@@ -108,10 +102,10 @@ const NavBarLayout = (props: any) => {
     >
       {navbarVisible && (
         <header className="navbar">
-          <div className="nav-logo-wrapper" onClick={() => router.push('/')}>
-            <img className="nav-logo" src={'/pictures/urapolku.png'} />
+          <a href="/" className="nav-logo-wrapper">
+            <img className="nav-logo" alt="logo of urapolku" src={'/pictures/urapolku.png'} />
             <p>Urapolku</p>
-          </div>
+          </a>
           <div className="nav-items-wrapper">
             {navbarMenuItems.map((item: any) => (
               <NavLink key={item.link} link={item.link} text={item.text} styling={item.styling} />
@@ -149,4 +143,4 @@ const NavBarLayout = (props: any) => {
   );
 };
 
-export { MenuButton, SideBar, NavBarLayout };
+export { MenuButton, NavBarLayout };

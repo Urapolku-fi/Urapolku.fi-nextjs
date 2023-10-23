@@ -15,14 +15,14 @@ const DetailedJobCard = ({ close }: any) => {
 
             <h2 className="profileName">University of Eastern Finland</h2>
 
-            <a href="#" className="profileWebsite">
+            <a href="/" className="profileWebsite">
               <LinkSvg />
               <p>Visit Website</p>
             </a>
 
             <ApplyNow link="#" />
 
-            <a href="#" className="profileReports">
+            <a href="/" className="profileReports">
               <p>Report as offline or expired</p>
             </a>
           </div>

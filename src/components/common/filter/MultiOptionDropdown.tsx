@@ -35,7 +35,8 @@ const MultiOptionDropdown = ({ options, childComponent, values, setValues }: any
 
   return (
     <>
-      <span onClick={toggleDropdown}>{childComponent}</span>
+      {/* //TODO: style the button */}
+      <button onClick={toggleDropdown}>{childComponent}</button>
       <div className={`dropdown-container${showDropdown ? '' : ' hide'}`}>
         <div className={'multi-option-dropdown'}>
           <div className="dropdown-flex-container">

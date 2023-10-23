@@ -47,9 +47,13 @@ const JobCard = ({ data, comparedJobs, setComparedJobs }: any) => {
           <p className="jobcard-info">{data.location}</p>
         </span>
       </div>
-      <div onClick={() => setShowDetailedCard(!showDetailedCard)} className="see-details-wrapper">
+      {/* //TODO: restyle this button */}
+      <button
+        onClick={() => setShowDetailedCard(!showDetailedCard)}
+        className="see-details-wrapper"
+      >
         <div className="see-details">Lue lisää</div>
-      </div>
+      </button>
       <img className="jobcard-item" alt="" src={'/pictures/job-example-image.png'} />
       <CheckBox
         text="Lisää vertailtavaksi"

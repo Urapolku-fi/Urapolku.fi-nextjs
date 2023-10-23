@@ -27,7 +27,7 @@ const MultipointRangeInput = (props: any) => {
       setFiltersState({ ...filtersState, salary: values });
     } else if (values.key === 'Enter') {
       //comes from text inputs
-      let value = parseInt(values.target.value);
+      const value = parseInt(values.target.value);
       if (value <= props.maxValue && value >= props.minValue) {
         if (values.target.className === 'min-text') setMinValue(value);
         else setMaxValue(value);

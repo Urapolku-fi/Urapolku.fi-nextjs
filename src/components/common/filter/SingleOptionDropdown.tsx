@@ -32,11 +32,12 @@ const SingleOptionDropdown = ({ options, childComponent, forSort, label }: any) 
 
   return (
     <div>
+      {/* //TODO: fix the styling on these buttons */}
       {label && <FilterLabel text={label} />}
-      <div onClick={toggleDropdown}>{childComponent}</div>
+      <button onClick={toggleDropdown}>{childComponent}</button>
       <div className={`education-list ${!showDropdown ? 'hide' : ''} ${forSort ? 'for-sort' : ''}`}>
         {options.map((item: any) => (
-          <div
+          <button
             // value={item}
             className={item !== value ? 'option' : 'option selected-option'}
             onClick={() => {
@@ -45,7 +46,7 @@ const SingleOptionDropdown = ({ options, childComponent, forSort, label }: any) 
             key={item}
           >
             {item}
-          </div>
+          </button>
         ))}
       </div>
     </div>

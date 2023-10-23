@@ -5,7 +5,6 @@ import CompareJobCard from './CompareJobCard';
 import { classMerge as cm } from '@/lib/classMerge';
 
 const CompareBox = ({ comparables, clearComparables, hidden, removeComparedJobById }: any) => {
-  console.log('comparables: ', comparables);
   return (
     <section className={cm(styles.compareContainer, hidden ? styles.hidden : '')}>
       <CompareJobCard data={comparables[0]} removeComparedJobById={removeComparedJobById} />

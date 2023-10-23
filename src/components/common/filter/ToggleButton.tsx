@@ -12,7 +12,7 @@ const ToggleButton = ({
   return (
     <>
       {selected ? (
-        <div
+        <button
           className={
             forDropdownControls
               ? 'toggle-button-toggled for-dropdown-controls'
@@ -23,9 +23,9 @@ const ToggleButton = ({
           onClick={onClick}
         >
           <div className="toggle-button-inner-text-toggled">{text}</div>
-        </div>
+        </button>
       ) : (
-        <div
+        <button
           className={
             forDropdownControls
               ? 'toggle-button for-dropdown-controls'
@@ -36,7 +36,7 @@ const ToggleButton = ({
           onClick={onClick}
         >
           <div className="toggle-button-inner-text">{text}</div>
-        </div>
+        </button>
       )}
     </>
   );

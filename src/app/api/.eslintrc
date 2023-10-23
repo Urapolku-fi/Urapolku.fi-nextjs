@@ -1,0 +1,6 @@
+// Just to override the console rule
+{
+  "rules": {
+    "no-console": "off"
+  }
+}

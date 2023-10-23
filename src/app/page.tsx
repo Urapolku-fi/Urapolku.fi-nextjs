@@ -3,7 +3,6 @@
 import './page.css';
 import { useEffect } from 'react';
 import getObserver from '@/components/animations/observer';
-import Link from 'next/link';
 
 export default function Page() {
   useEffect(() => {

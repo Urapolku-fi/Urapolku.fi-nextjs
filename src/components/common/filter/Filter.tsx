@@ -16,10 +16,11 @@ const Filter = ({ filtersState, setFiltersState, clearFilters }: any) => {
       <div className="filter-and-tools-container">
         <div className="filter">
           <div className="filter-header-container">
+            {/* // TODO: style me */}
             <div className="filter-header">Suodattimet</div>
-            <div className="filter-clear" onClick={clearFilters}>
+            <button className="filter-clear" onClick={clearFilters}>
               Poista suodattimet
-            </div>
+            </button>
           </div>
           <div className="filters-flex-container">
             <LargeFilter
@@ -53,7 +54,7 @@ const Filter = ({ filtersState, setFiltersState, clearFilters }: any) => {
               options={filtersState.education}
               childComponent={
                 <div className="large-filter-opener">
-                  <img className="expand-more-arrow" src={'/pictures/expand-arrow.png'}></img>
+                  <img className="expand-more-arrow" alt='show more' src={'/pictures/expand-arrow.png'}></img>
                   <div className="large-filter-opener-text">Choose Education</div>
                 </div>
               }

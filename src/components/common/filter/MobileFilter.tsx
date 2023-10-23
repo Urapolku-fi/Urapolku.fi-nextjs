@@ -86,17 +86,19 @@ const MobileFilters = ({ filtersState, setFiltersState, categoryNames }: any) =>
 
   return (
     <div>
-      <div className="text-job-filter-toggle" onClick={() => setOpen(true)}>
+      {/* //TODO: restyle this button */}
+      <button className="text-job-filter-toggle" onClick={() => setOpen(true)}>
         Filters
-      </div>
+      </button>
       {open && (
         <div className="mobile-filters">
-          <div
+          {/* //TODO: restyle this button */}
+          <button
             className="mobile-filters-thumb-wrapper" //this exists because the part is too small to grab otherwise
             onClick={() => setOpen(false)}
           >
             <div className="mobile-filters-thumb"></div>{' '}
-          </div>
+          </button>
 
           <div className="mobile-filters-header">
             <p>Filters</p>
@@ -105,7 +107,8 @@ const MobileFilters = ({ filtersState, setFiltersState, categoryNames }: any) =>
           <div className="mobile-filters-content-wrapper">
             <div className="mobile-filters-names">
               {categoryNames.map((filterName: any) => (
-                <div
+                //TODO: restyle this button
+                <button
                   onClick={changeActiveCategory}
                   className={`mobile-filters-name ${
                     filterName.replace(' ', '').toLowerCase() === activeFilter ? 'active' : ''
@@ -114,7 +117,7 @@ const MobileFilters = ({ filtersState, setFiltersState, categoryNames }: any) =>
                   key={filterName}
                 >
                   {filterName}
-                </div>
+                </button>
               ))}
             </div>
             <div className="mobile-filters-values">

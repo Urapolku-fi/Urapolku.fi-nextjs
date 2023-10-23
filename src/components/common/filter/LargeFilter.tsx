@@ -24,7 +24,7 @@ const LargeFilter = ({ propertyName, label, placeholder }: any) => {
         <>
           {label && <FilterLabel text={label} />}
           <div className="large-filter-opener">
-            <img className="expand-more-arrow" src={'/pictures/expand-arrow.png'}></img>
+            <img className="expand-more-arrow" alt="show more" src={'/pictures/expand-arrow.png'}></img>
             <div className="large-filter-opener-text">{placeholder || label || 'Placeholder'}</div>
             {/* //TODO: change this to actual state */}
             {false && <ToggleButton selected={false} text="Text" />}

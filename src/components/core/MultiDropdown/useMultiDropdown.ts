@@ -31,7 +31,7 @@ export default function useMultiDropdown(values: any) {
         return values[set].values[value];
       } catch (e) {
         // TODO: handle error
-        console.error('Failed to get selected: ', e);
+        // console.error('Failed to get selected: ', e);
       }
     });
 

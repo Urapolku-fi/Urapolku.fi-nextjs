@@ -2,7 +2,7 @@
 
 import './page.css';
 import { useEffect, useState } from 'react';
-import { defaultFiltersState, loremIpsum } from './filter';
+import { defaultFiltersState } from './filter';
 import SearchBar from './_components/SeatchBar';
 import MobileFilters from '@/components/common/filter/MobileFilter';
 import SingleOptionDropdown from '@/components/common/filter/SingleOptionDropdown';
@@ -85,7 +85,12 @@ function Page() {
           forSort
           childComponent={
             <div className="button-sort">
-              Järjestä <img className="sort-dropdown-arrow" src={'/pictures/expand-arrow.png'} />
+              Järjestä{' '}
+              <img
+                className="sort-dropdown-arrow"
+                alt="show more"
+                src={'/pictures/expand-arrow.png'}
+              />
             </div>
           }
         />

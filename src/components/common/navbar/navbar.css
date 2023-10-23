@@ -9,6 +9,7 @@
 .nav-logo-wrapper {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .nav-logo-wrapper p {
