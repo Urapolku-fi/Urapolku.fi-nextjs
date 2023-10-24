@@ -1,5 +1,12 @@
 import { useState } from 'react';
 
+export interface IuseDropdown {
+  isOpen: boolean;
+  toggle: () => void;
+  value: string;
+  setValue: (value: string) => void;
+}
+
 /**
  * Custom hook for managing dropdown state and value.
  *

@@ -13,7 +13,7 @@
   color: #a39bb4;
 
   cursor: pointer;
-  
+
   transition-duration: 150ms;
   transition-property: color;
 }
@@ -22,8 +22,14 @@
   color: #faf8ff;
 }
 
-.modal {
+.container {
+  display: flex;
   position: relative;
+}
+
+.modal {
+  position: absolute;
+  z-index: 100;
 
   background-color: #0b0121;
 
@@ -43,7 +49,7 @@
 }
 
 .top {
-  top: 10px;
+  top: 50px;
 }
 
 .opener {

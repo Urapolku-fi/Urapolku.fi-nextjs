@@ -3,7 +3,7 @@
 import './page.css';
 import { useEffect, useState } from 'react';
 import { defaultFiltersState } from './filter';
-import SearchBar from './_components/SeatchBar';
+import SearchBar from '../../../components/common/searchBar/SeatchBar';
 import MobileFilters from '@/components/common/filter/MobileFilter';
 import SingleOptionDropdown from '@/components/common/filter/SingleOptionDropdown';
 import Filter from '@/components/common/filter/Filter';
@@ -11,22 +11,18 @@ import JobCard from './_components/JobCard';
 import AdCard from './_components/AdCard';
 import Footer from '@/components/common/footer/Footer';
 import CompareBox from './_components/compare/CompareBox';
+import useSearchBar from '@/components/common/searchBar/useSearchBar';
 
 function Page() {
-  const [searchInput, setSearchInput] = useState('');
   const [comparedJobs, setComparedJobs] = useState([]);
   const [filtersState, setFiltersState] = useState(defaultFiltersState);
+  const searchBar = useSearchBar();
 
   useEffect(() => {
     if (comparedJobs.length > 4) {
       setComparedJobs([...comparedJobs].slice(1, 4));
     }
   }, [comparedJobs]);
-
-  const handleChange = (event: any) => {
-    event.preventDefault();
-    setSearchInput(event.target.value);
-  };
 
   const clearFilters = () => {
     setFiltersState(defaultFiltersState);
@@ -61,7 +57,7 @@ function Page() {
             </div>
           </div>
         </div>
-        <SearchBar searchInput={searchInput} handleInputChange={handleChange} />
+        <SearchBar {...searchBar} experienceDropdownOptions={['A', 'B', 'C', 'D']} />
       </div>
       <div className="job-count-and-sort-container">
         <MobileFilters

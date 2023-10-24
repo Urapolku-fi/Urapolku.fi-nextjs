@@ -2,7 +2,7 @@ import classes from './dropdown.module.css';
 import { classMerge as cm } from '@/lib/classMerge';
 import ChevronDown from '@/components/icons/ChevronDown';
 
-interface DropdownProps {
+export interface DropdownProps {
   options: string[];
   title?: string;
   closeAutomatically?: boolean;
@@ -45,7 +45,7 @@ function Dropdown({
   }
 
   return (
-    <>
+    <div className={classes.container}>
       <button className={classes.opener} onClick={toggle}>
         {title}
         <ChevronDown />
@@ -61,7 +61,7 @@ function Dropdown({
           </button>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
