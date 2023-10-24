@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+
+  border: none;
+  background: none;
+
+  font-size: 16px;
+  color: #ececec;
+  list-style: none;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin: 0px;
+}
+
+.option::before {
+  content: '';
+  color: transparent;
+  border: #ececec 1px solid;
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-radius: 100%;
+  background-color: transparent;
+}
+
+.option.selected:before {
+  background-color: #ececec;
+}
