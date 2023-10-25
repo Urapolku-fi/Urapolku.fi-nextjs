@@ -13,7 +13,7 @@ export interface CheckBoxProps {
  * @param toggle - Function to toggle the checkbox.
  * @returns A checkbox component.
  */
-export default function CheckBox({ checked, text, toggle }: CheckBoxProps) {
+export default function Checkbox({ checked, text, toggle }: CheckBoxProps) {
   return (
     <button className={styles.container} onClick={toggle}>
       <p className={cm(styles.option, checked ? styles.selected : '')}>{text}</p>

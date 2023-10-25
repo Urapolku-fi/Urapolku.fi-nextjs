@@ -1,67 +1,45 @@
-import { useEffect, useState } from 'react';
-import './jobCard.css';
-import BookmarkButton from './BookmarkButton';
-import DetailedJobCard from './DetailedJobCard';
-import CheckBox from '@/components/common/filter/CheckBox';
-import objectShallowEqual from '@/lib/objectShallowEqual';
+import styles from './jobCard.module.css';
+import Image from 'next/image';
+import { Button, Checkbox, useCheckbox } from '@/components/core';
+import { useEffect } from 'react';
+import Bookmark from '@/components/icons/Bookmark';
 
 const JobCard = ({ data, comparedJobs, setComparedJobs }: any) => {
-  const [compareToggled, setCompareToggled] = useState(false);
-  const [showDetailedCard, setShowDetailedCard] = useState(false);
-
-  const toggleCompareToggled = () => {
-    const newCompareToggled = !compareToggled;
-    if (newCompareToggled) {
-      if (comparedJobs.length > 2) {
-        return;
-      }
-      setComparedJobs([...comparedJobs, data]);
-    } else {
-      setComparedJobs(comparedJobs.filter((e: any) => !objectShallowEqual(e, data)));
-    }
-    setCompareToggled(newCompareToggled);
-  };
+  const checkbox = useCheckbox();
 
   useEffect(() => {
-    if (comparedJobs.filter((e: any) => e.id === data.id).length === 0) {
-      setCompareToggled(false);
-    }
-  }, [comparedJobs, data.id]);
+    if (checkbox.checked) setComparedJobs([...comparedJobs, data]);
+    else setComparedJobs(comparedJobs.filter((job: any) => job.id !== data.id));
+  }, [checkbox.checked, comparedJobs, data, setComparedJobs]);
 
   return (
-    <div className="jobcard" key={data.id}>
-      {showDetailedCard && <DetailedJobCard close={() => setShowDetailedCard(false)} />}
-      <div className="jobcard-child" />
-      <div className="jobcard-info-welfare-container">
-        <span className="jobcard-info-welfare-container1">
-          <p className="jobcard-info">{`Western Uusimaa`}</p>
-          <p className="jobcard-info">{data.area}</p>
-        </span>
+    <div className={styles.container}>
+      <div className={styles.imageTitleContainer}>
+        {/* //TODO: use real image and alt */}
+        <Image
+          width="47"
+          height="47"
+          alt="Logo of example company"
+          src="/pictures/job-example-image.png"
+        />
+        <p>Company Name</p>
       </div>
-      <div className="health-care-full-container">
-        <span className="jobcard-info-welfare-container1">
-          <p className="jobcard-title">{data.title}</p>
-          <p className="jobcard-info">{data.field}</p>
-          <p className="jobcard-info">{data.type}</p>
-          <p className="jobcard-info">{data.salary}</p>
-          <p className="jobcard-info">{data.location}</p>
-        </span>
+      <div className={styles.infoContainer}>
+        <p className={styles.title}>Role (position)</p>
+        <p className={styles.info}>Industry</p>
+        <p className={styles.info}>Job Type | Work Type</p>
+        <p className={styles.info}>Annual or monthly salary</p>
+        <p className={styles.info}>Location</p>
       </div>
-      {/* //TODO: restyle this button */}
-      <button
-        onClick={() => setShowDetailedCard(!showDetailedCard)}
-        className="see-details-wrapper"
-      >
-        <div className="see-details">Lue lisää</div>
-      </button>
-      <img className="jobcard-item" alt="" src={'/pictures/job-example-image.png'} />
-      <CheckBox
-        text="Lisää vertailtavaksi"
-        toggled={compareToggled}
-        onClick={toggleCompareToggled}
-        forJobcard={true}
-      />
-      <BookmarkButton />
+      <div className={styles.buttonContainer}>
+        <Checkbox {...checkbox} text="Add to compare" />
+        <div className={styles.buttons}>
+          <Button>See Details</Button>
+          <Button variant="icon" outline>
+            <Bookmark />
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

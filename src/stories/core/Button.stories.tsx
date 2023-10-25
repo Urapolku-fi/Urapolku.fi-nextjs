@@ -1,4 +1,5 @@
 import { Button } from '@/components/core';
+import Bookmark from '@/components/icons/Bookmark';
 
 export default {
   title: 'core/Button',
@@ -105,6 +106,16 @@ export const TertiarySearch: any = Template.bind({});
 TertiarySearch.args = {
   children: 'Tertiary Search Button',
   variant: 'search',
+  glow: false,
+  outline: true,
+  dark: false,
+  size: 'medium',
+};
+
+export const PrimaryIcon: any = Template.bind({});
+PrimaryIcon.args = {
+  children: <Bookmark />,
+  variant: 'icon',
   glow: false,
   outline: true,
   dark: false,

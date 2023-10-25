@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import './multiOptionDropdown.css';
-import CheckBox from './CheckBox';
+import Checkbox from '../../core/Checkbox/Checkbox';
 import ToggleButton from './ToggleButton';
 import FilterLabel from './FilterLabel';
 
@@ -42,7 +42,7 @@ const MultiOptionDropdown = ({ options, childComponent, values, setValues }: any
           <div className="dropdown-flex-container">
             {options.map((item: any) =>
               typeof item === 'string' ? (
-                <CheckBox
+                <Checkbox
                   key={item}
                   text={item}
                   toggled={
