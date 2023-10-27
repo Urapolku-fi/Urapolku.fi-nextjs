@@ -52,7 +52,7 @@ const MultiOptionDropdown = ({ options, childComponent, values, setValues }: any
                         .findIndex((e: any) => e === item)
                     ]
                   }
-                  onClick={() =>
+                  toggle={() =>
                     handleOptionClick(
                       options
                         .filter((e: any) => typeof e === 'string')
