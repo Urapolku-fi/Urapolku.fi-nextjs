@@ -1,26 +1,25 @@
 'use client';
 
-import './page.css';
+import styles from './page.module.css';
 import { useEffect, useState } from 'react';
-import { defaultFiltersState } from './filter';
+import { IFilter, defaultFiltersState } from './filter';
 import SearchBar from '../../../components/common/searchBar/SeatchBar';
-import MobileFilters from '@/components/common/filter/MobileFilter';
-import SingleOptionDropdown from '@/components/common/filter/SingleOptionDropdown';
-import Filter from '@/components/common/filter/Filter';
-import JobCard from './_components/JobCard';
-import AdCard from './_components/AdCard';
-import Footer from '@/components/common/footer/Footer';
-import CompareBox from './_components/compare/CompareBox';
 import useSearchBar from '@/components/common/searchBar/useSearchBar';
+import JobCard, { JobCardData } from './_components/JobCard';
+import Filter from '@/components/common/filter/Filter';
+import { Dropdown, useDropdown } from '@/components/core';
+import JobToolsPanel from '@/components/common/filter/JobToolsPanel';
+import CompareBox from './_components/compare/CompareBox';
 
 function Page() {
-  const [comparedJobs, setComparedJobs] = useState([]);
-  const [filtersState, setFiltersState] = useState(defaultFiltersState);
+  const [comparedJobs, setComparedJobs] = useState<JobCardData[]>([]);
+  const [filtersState, setFiltersState] = useState<IFilter>(defaultFiltersState);
   const searchBar = useSearchBar();
+  const sortBy = useDropdown();
 
   useEffect(() => {
     if (comparedJobs.length > 4) {
-      setComparedJobs([...comparedJobs].slice(1, 4));
+      setComparedJobs([...comparedJobs].slice(0, 4));
     }
   }, [comparedJobs]);
 
@@ -45,96 +44,51 @@ function Page() {
     location: 'Espoo',
   };
 
-  return (
-    <div className="Browse-wrapper">
-      <div className="hero-stack">
-        <div className="content">
-          <div className="header-looking-for-job">Etsitkö työpaikkaa?</div>
-          <div className="paragraph-wrapper">
-            <div className="text-ipsum">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua.
-            </div>
-          </div>
-        </div>
-        <SearchBar {...searchBar} experienceDropdownOptions={['A', 'B', 'C', 'D']} />
-      </div>
-      <div className="job-count-and-sort-container">
-        <MobileFilters
-          filtersState={filtersState}
-          setFiltersState={setFiltersState}
-          categoryNames={[
-            'Location',
-            'Job Type',
-            'Work Type',
-            'Industry',
-            'Company',
-            'Language',
-            'Role',
-            'Salary',
-            'Education',
-          ]}
-        />
-        <div className="text-job-count">Näytetään 500 työtä alalla terveydenhuolto</div>
-        <SingleOptionDropdown
-          options={['päiväys', 'osuvuus']}
-          forSort
-          childComponent={
-            <div className="button-sort">
-              Järjestä{' '}
-              <img
-                className="sort-dropdown-arrow"
-                alt="show more"
-                src={'/pictures/expand-arrow.png'}
-              />
-            </div>
-          }
-        />
-      </div>
-      <div className="job-and-filter-container">
-        <Filter
-          filtersState={filtersState}
-          setFiltersState={setFiltersState}
-          clearFilters={clearFilters}
-        />
-        <div className="job-container">
-          <JobCard
-            data={{ ...exampleData, id: 1 }}
-            comparedJobs={comparedJobs}
-            setComparedJobs={setComparedJobs}
-          />
-          <JobCard
-            data={{ ...exampleData, id: 2 }}
-            comparedJobs={comparedJobs}
-            setComparedJobs={setComparedJobs}
-          />
-          <AdCard text="Näillä kymmenellä alalla on eniten töitä tällä hetkellä." />
-          <JobCard
-            data={{ ...exampleData, id: 3 }}
-            comparedJobs={comparedJobs}
-            setComparedJobs={setComparedJobs}
-          />
-          <JobCard
-            data={{ ...exampleData, id: 4 }}
-            comparedJobs={comparedJobs}
-            setComparedJobs={setComparedJobs}
-          />
-          <JobCard
-            data={{ ...exampleData, id: 5 }}
-            comparedJobs={comparedJobs}
-            setComparedJobs={setComparedJobs}
-          />
-        </div>
-      </div>
-      <Footer />
+  const mocCards = Array.from(Array(20).keys()).map((e, i) => (
+    <JobCard
+      key={i}
+      comparedJobs={comparedJobs}
+      setComparedJobs={setComparedJobs}
+      data={{ ...exampleData, id: i }}
+    />
+  ));
 
+  return (
+    <main className={styles.mainContainer}>
+      <section className={styles.hero}>
+        <h1 className={styles.heading}>Looking for a job?</h1>
+        <p className={styles.subheading}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua.
+        </p>
+        {/* //TODO: add real options */}
+        <SearchBar experienceDropdownOptions={['A', 'B', 'C']} {...searchBar} />
+      </section>
+      <section className={styles.infoSortByContainer}>
+        <span></span>
+        <p>Showing 500 jobs in Health Care</p>
+        <div>
+          <Dropdown options={['Date', 'Relevance']} {...sortBy} />
+        </div>
+      </section>
+      <section className={styles.filterCardsContainer}>
+        <div className={styles.filter}>
+          <Filter
+            filtersState={filtersState}
+            setFiltersState={setFiltersState}
+            clearFilters={clearFilters}
+          />
+          <JobToolsPanel />
+        </div>
+        <div className={styles.jobCardsContainer}>{mocCards}</div>
+      </section>
       <CompareBox
         comparables={comparedJobs}
         clearComparables={clearComparables}
         hidden={comparedJobs.length === 0}
         removeComparedJobById={removeComparedJobById}
       />
-    </div>
+    </main>
   );
 }
 

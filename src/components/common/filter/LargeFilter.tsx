@@ -1,6 +1,6 @@
 //TODO: make this into its own component
 
-import './largeFilter.css';
+import styles from './largeFilter.module.css';
 import ToggleButton from './ToggleButton';
 import MultiOptionDropdown from './MultiOptionDropdown';
 import { FilterContext } from './Filter';
@@ -23,9 +23,15 @@ const LargeFilter = ({ propertyName, label, placeholder }: any) => {
       childComponent={
         <>
           {label && <FilterLabel text={label} />}
-          <div className="large-filter-opener">
-            <img className="expand-more-arrow" alt="show more" src={'/pictures/expand-arrow.png'}></img>
-            <div className="large-filter-opener-text">{placeholder || label || 'Placeholder'}</div>
+          <div className={styles.largeFilterOpener}>
+            <img
+              className={styles.expandmoreArrow}
+              alt="show more"
+              src={'/pictures/expand-arrow.png'}
+            ></img>
+            <div className={styles.largeFilterOpenerText}>
+              {placeholder || label || 'Placeholder'}
+            </div>
             {/* //TODO: change this to actual state */}
             {false && <ToggleButton selected={false} text="Text" />}
           </div>

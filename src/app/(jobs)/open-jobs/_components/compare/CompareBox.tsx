@@ -3,8 +3,21 @@ import styles from './compareBox.module.css';
 import CompareJobCardSeperator from './CompareCardSeperator';
 import CompareJobCard from './CompareJobCard';
 import { classMerge as cm } from '@/lib/classMerge';
+import { JobCardData } from '../JobCard';
 
-const CompareBox = ({ comparables, clearComparables, hidden, removeComparedJobById }: any) => {
+interface ICompareBoxProps {
+  comparables: JobCardData[];
+  clearComparables: () => void;
+  hidden: boolean;
+  removeComparedJobById: (id: any) => void;
+}
+
+const CompareBox = ({
+  comparables,
+  clearComparables,
+  hidden,
+  removeComparedJobById,
+}: ICompareBoxProps) => {
   return (
     <section className={cm(styles.compareContainer, hidden ? styles.hidden : '')}>
       <CompareJobCard data={comparables[0]} removeComparedJobById={removeComparedJobById} />

@@ -1,23 +1,22 @@
-// TODO: make me a separate component
-import './jobToolsPanel.css';
+import styles from './jobToolsPanel.module.css';
 
 const JobToolsPanel = () => {
   return (
-    <div className="job-tools-panel">
-      <div className="job-tools-header">Työkalut</div>
-      <div className="job-tools-text">
+    <div className={styles.jobToolsPanel}>
+      <div className={styles.jobToolsHeader}>Työkalut</div>
+      <div className={styles.jobToolsText}>
         <a href="https://example.com">Lorem</a>
       </div>
-      <div className="job-tools-text">
+      <div className={styles.jobToolsText}>
         <a href="https://example.com">Ipsum</a>
       </div>
-      <div className="job-tools-text">
+      <div className={styles.jobToolsText}>
         <a href="https://example.com">Dolor</a>
       </div>
-      <div className="job-tools-text">
+      <div className={styles.jobToolsText}>
         <a href="https://example.com">Sit</a>
       </div>
-      <div className="job-tools-text">
+      <div className={styles.jobToolsText}>
         <a href="https://example.com">Amet</a>
       </div>
     </div>

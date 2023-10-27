@@ -1,6 +1,5 @@
-import './filter.css';
+import styles from './filter.module.css';
 import ButtonGroup from './ButtonGroup';
-import JobToolsPanel from './JobToolsPanel';
 import LargeFilter from './LargeFilter';
 import { createContext } from 'react';
 import SingleOptionDropdown from './SingleOptionDropdown';
@@ -8,21 +7,26 @@ import MultipointRangeInput from './MultipointRangeInput';
 
 export const FilterContext = createContext({});
 
-const Filter = ({ filtersState, setFiltersState, clearFilters }: any) => {
+interface FilterProps {
+  filtersState: any;
+  setFiltersState: any;
+  clearFilters: () => void;
+}
+
+const Filter = ({ filtersState, setFiltersState, clearFilters }: FilterProps) => {
   return (
     <FilterContext.Provider
       value={{ filtersState: filtersState, setFiltersState: setFiltersState }}
     >
-      <div className="filter-and-tools-container">
-        <div className="filter">
-          <div className="filter-header-container">
-            {/* // TODO: style me */}
-            <div className="filter-header">Suodattimet</div>
-            <button className="filter-clear" onClick={clearFilters}>
+      <div className={styles.filterAndToolsContainer}>
+        <div className={styles.filter}>
+          <div className={styles.filterHeaderContainer}>
+            <div className={styles.filterHeader}>Suodattimet</div>
+            <button className={styles.filterClear} onClick={clearFilters}>
               Poista suodattimet
             </button>
           </div>
-          <div className="filters-flex-container">
+          <div className={styles.filtersFlexContainer}>
             <LargeFilter
               propertyName={'location'}
               label={'Location'}
@@ -53,15 +57,18 @@ const Filter = ({ filtersState, setFiltersState, clearFilters }: any) => {
               label={'Education'}
               options={filtersState.education}
               childComponent={
-                <div className="large-filter-opener">
-                  <img className="expand-more-arrow" alt='show more' src={'/pictures/expand-arrow.png'}></img>
-                  <div className="large-filter-opener-text">Choose Education</div>
+                <div className={styles.largeFilterOpener}>
+                  <img
+                    className={styles.expandMoreArrow}
+                    alt="show more"
+                    src={'/pictures/expand-arrow.png'}
+                  ></img>
+                  <div className={styles.largeFilterOpenerText}>Choose Education</div>
                 </div>
               }
             />
           </div>
         </div>
-        <JobToolsPanel />
       </div>
     </FilterContext.Provider>
   );

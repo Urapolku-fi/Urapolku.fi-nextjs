@@ -1,0 +1,86 @@
+.mainContainer {
+  background: linear-gradient(to bottom, #673eff 0px, #0d0325 360px);
+}
+
+.hero {
+  display: flex;
+  flex-grow: 0;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 100px;
+  padding-top: 80px;
+}
+
+.heading {
+  font-size: 80px;
+  font-weight: 500;
+  margin: 0px;
+
+  color: transparent;
+  background: linear-gradient(146deg, #ececec 20%, rgba(236, 236, 236, 0) 130%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subheading {
+  margin-bottom: 64px;
+
+  width: 75vw;
+  max-width: 600px;
+
+  text-align: center;
+  font-size: 16px;
+  color: #a39bb4;
+  line-height: 150%;
+}
+
+.infoSortByContainer {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  justify-content: space-between;
+  padding-right: 40px;
+  margin: 0px 13vw;
+}
+
+.infoSortByContainer > p {
+  color: #ececec;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.infoSortByContainer > div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filterCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0px 13vw;
+  gap: 40px;
+}
+
+.jobCardsContainer {
+  /* width: 100%; */
+  padding-right: 40px;
+  grid-column: 2 / span 3;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+
+}
+
+.filter {
+  width: 100%;
+  grid-row: 1 / span -1;
+  height: min-content;
+
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}

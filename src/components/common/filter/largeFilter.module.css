@@ -1,4 +1,4 @@
-.large-filter-opener {
+.largeFilterOpener {
   position: relative;
   width: 100%;
   border-bottom: 1px solid #ececec;
@@ -8,7 +8,7 @@
   cursor: pointer;
 }
 
-.large-filter-opener-text {
+.largeFilterOpenerText {
   font-size: 12px;
   line-height: 150%;
   font-family: Montserrat;
@@ -17,7 +17,7 @@
   user-select: none;
 }
 
-.expand-more-arrow {
+.expandMoreArrow {
   position: relative;
   top: 27px;
   left: calc(100% - 18px);

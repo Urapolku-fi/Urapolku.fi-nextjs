@@ -58,7 +58,7 @@ const loremIpsum = [
   'tempus',
 ];
 
-const defaultFiltersState = {
+const defaultFiltersState: IFilter = {
   location: [loremIpsum, Array(loremIpsum.filter((e) => typeof e === 'string').length).fill(false)],
   jobType: [
     ['Full Time', true],
@@ -93,5 +93,17 @@ const defaultFiltersState = {
     'Certified course',
   ],
 };
+
+export interface IFilter {
+  location: (string | string[])[];
+  jobType: [string, boolean][];
+  workType: [string, boolean][];
+  industry: (string | string[])[];
+  company: (string | string[])[];
+  language: [string, boolean][];
+  role: (string | string[])[];
+  salary: [number, number];
+  education: string[];
+}
 
 export { defaultFiltersState, loremIpsum };

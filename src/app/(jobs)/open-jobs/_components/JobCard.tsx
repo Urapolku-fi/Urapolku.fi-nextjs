@@ -1,10 +1,26 @@
 import styles from './jobCard.module.css';
 import Image from 'next/image';
 import { Button, Checkbox, useCheckbox } from '@/components/core';
-import { useEffect } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 import Bookmark from '@/components/icons/Bookmark';
 
-const JobCard = ({ data, comparedJobs, setComparedJobs }: any) => {
+export interface JobCardData {
+  title: string;
+  area: string;
+  field: string;
+  type: string;
+  salary: string;
+  location: string;
+  id: number;
+}
+
+interface JobCardProps {
+  data: JobCardData;
+  comparedJobs: JobCardData[];
+  setComparedJobs: Dispatch<SetStateAction<JobCardData[]>>;
+}
+
+const JobCard = ({ data, comparedJobs, setComparedJobs }: JobCardProps) => {
   const checkbox = useCheckbox();
 
   useEffect(() => {
