@@ -45,7 +45,7 @@ const MultiOptionDropdown = ({ options, childComponent, values, setValues }: any
                 <Checkbox
                   key={item}
                   text={item}
-                  toggled={
+                  checked={
                     values[
                       options
                         .filter((e: any) => typeof e === 'string')

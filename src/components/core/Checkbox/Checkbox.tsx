@@ -4,7 +4,7 @@ import styles from './checkbox.module.css';
 export interface CheckBoxProps {
   checked: boolean;
   text: string;
-  toggle: () => void;
+  onClick?: () => void;
 }
 
 /**
@@ -13,9 +13,14 @@ export interface CheckBoxProps {
  * @param toggle - Function to toggle the checkbox.
  * @returns A checkbox component.
  */
-export default function Checkbox({ checked, text, toggle }: CheckBoxProps) {
+export default function Checkbox({ checked, text, onClick = () => {} }: CheckBoxProps) {
   return (
-    <button className={styles.container} onClick={toggle}>
+    <button
+      className={styles.container}
+      onClick={() => {
+        onClick();
+      }}
+    >
       <p className={cm(styles.option, checked ? styles.selected : '')}>{text}</p>
     </button>
   );
