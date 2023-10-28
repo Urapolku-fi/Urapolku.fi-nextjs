@@ -3,6 +3,7 @@ import './mobileFilter.css';
 import ToggleButton from './ToggleButton';
 import ButtonGroup from './ButtonGroup';
 import MultipointRangeInput from './MultipointRangeInput';
+import { Button } from '@/components/core';
 
 const FilterListItem = ({ text, active }: any) => {
   return (
@@ -69,7 +70,13 @@ const ListItems = ({ activeFilter, filtersState, setFiltersState }: any) => {
   }
 };
 
-const MobileFilters = ({ filtersState, setFiltersState, categoryNames }: any) => {
+interface MobileFiltersProps {
+  filtersState: any;
+  setFiltersState: any;
+  categoryNames: any;
+}
+
+const MobileFilters = ({ filtersState, setFiltersState, categoryNames }: MobileFiltersProps) => {
   const [open, setOpen] = useState(false);
 
   const [activeFilter, setActiveFilter] = useState(Object.keys(filtersState)[0].toLowerCase());
@@ -86,10 +93,9 @@ const MobileFilters = ({ filtersState, setFiltersState, categoryNames }: any) =>
 
   return (
     <div>
-      {/* //TODO: restyle this button */}
-      <button className="text-job-filter-toggle" onClick={() => setOpen(true)}>
+      <Button variant='skeleton' className="text-job-filter-toggle" onClick={() => setOpen(true)}>
         Filters
-      </button>
+      </Button>
       {open && (
         <div className="mobile-filters">
           {/* //TODO: restyle this button */}

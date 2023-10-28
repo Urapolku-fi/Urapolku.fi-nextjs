@@ -72,7 +72,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
-
 }
 
 .filter {
@@ -83,4 +82,83 @@
   display: flex;
   flex-direction: column;
   gap: 45px;
+}
+
+.mobileSearchBar {
+  display: none;
+}
+
+.infoSortByContainerMobile {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .heading {
+    font-size: 48px;
+  }
+
+  .subheading {
+    font-size: 16px;
+  }
+
+  .searchBar {
+    width: 92vw;
+  }
+
+  .filterCardsContainer {
+    padding: 0px 32px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .heading {
+    font-size: 32px;
+    font-weight: 500;
+  }
+
+  .searchBar {
+    display: none;
+  }
+
+  .mobileSearchBar {
+    display: block;
+  }
+
+  .infoSortByContainer {
+    display: none;
+  }
+
+  .infoSortByContainerMobile {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .compareIcon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .compareButton {
+    display: flex;
+    font-size: 14px;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .filterCardsContainer {
+    display: flex;
+    padding: 0px 20px;
+    margin: 0px;
+  }
+
+  .jobCardsContainer {
+    padding: 0px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter {
+    display: none;
+  }
 }

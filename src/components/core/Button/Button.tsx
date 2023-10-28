@@ -3,7 +3,7 @@ import classes from './button.module.css';
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'normal' | 'search' | 'rounded' | 'icon';
+  variant?: 'normal' | 'search' | 'rounded' | 'icon' | 'skeleton';
   glow?: boolean;
   outline?: boolean;
   size?: 'small' | 'medium' | 'large';
@@ -44,6 +44,7 @@ function Button({
   if (variant == 'search') className.push(classes.search);
   if (variant == 'icon') className.push(classes.icon);
   if (variant == 'rounded') className.push(classes.rounded);
+  if (variant == 'skeleton') className.push(classes.skeleton);
   if (dark) className.push(classes.dark);
 
   className.push(classes.button);

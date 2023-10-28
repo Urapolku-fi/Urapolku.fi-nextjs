@@ -7,9 +7,12 @@ import SearchBar from '../../../components/common/searchBar/SeatchBar';
 import useSearchBar from '@/components/common/searchBar/useSearchBar';
 import JobCard, { JobCardData } from './_components/JobCard';
 import Filter from '@/components/common/filter/Filter';
-import { Dropdown, useDropdown } from '@/components/core';
+import { Button, Dropdown, useDropdown } from '@/components/core';
 import JobToolsPanel from '@/components/common/filter/JobToolsPanel';
 import CompareBox from './_components/compare/CompareBox';
+import MobileFilters from '@/components/common/filter/MobileFilter';
+import MobileSearchBar from '@/components/common/searchBar/MobileSearchBar';
+import ChevronDown from '@/components/icons/ChevronDown';
 
 function Page() {
   const [comparedJobs, setComparedJobs] = useState<JobCardData[]>([]);
@@ -62,7 +65,12 @@ function Page() {
           ut labore et dolore magna aliqua.
         </p>
         {/* //TODO: add real options */}
-        <SearchBar experienceDropdownOptions={['A', 'B', 'C']} {...searchBar} />
+        <div className={styles.searchBar}>
+          <SearchBar experienceDropdownOptions={['A', 'B', 'C']} {...searchBar} />
+        </div>
+        <div className={styles.mobileSearchBar}>
+          <MobileSearchBar />
+        </div>
       </section>
       <section className={styles.infoSortByContainer}>
         <span></span>
@@ -70,6 +78,27 @@ function Page() {
         <div>
           <Dropdown options={['Date', 'Relevance']} {...sortBy} />
         </div>
+      </section>
+      <section className={styles.infoSortByContainerMobile}>
+        <MobileFilters
+          filtersState={filtersState}
+          setFiltersState={setFiltersState}
+          categoryNames={[
+            'Location',
+            'Job Type',
+            'Work Type',
+            'Industry',
+            'Company',
+            'Language',
+            'Role',
+            'Salary',
+            'Education',
+          ]}
+        />
+        <Button className={styles.compareButton} variant="skeleton">
+          Compare
+          <ChevronDown className={styles.compareIcon} />
+        </Button>
       </section>
       <section className={styles.filterCardsContainer}>
         <div className={styles.filter}>

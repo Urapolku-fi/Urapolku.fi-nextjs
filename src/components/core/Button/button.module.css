@@ -30,6 +30,12 @@
   color: #ececec;
 }
 
+.skeleton {
+  background-color: transparent;
+  border: none;
+  color: #ececec;
+}
+
 .outline:hover {
   background-color: #ececec;
   color: #0b0121;
