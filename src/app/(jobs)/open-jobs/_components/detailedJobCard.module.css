@@ -1,4 +1,4 @@
-.detailed-card-wrapper {
+.detailedCardWrapper {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -13,7 +13,7 @@
   align-items: center;
 }
 
-.detailed-card {
+.detailedCard {
   width: 100%;
   max-width: 65vw;
   height: 70vh;
@@ -30,7 +30,7 @@
   margin: 3rem;
 }
 
-.detailed-card-left {
+.detailedCardLeft {
   width: 35%;
   display: flex;
   align-items: end;
@@ -43,14 +43,14 @@
   box-sizing: border-box;
 }
 
-.detailed-card-right {
+.detailedCardRight {
   width: 65%;
   text-align: left;
   padding: 1.5rem;
   box-sizing: border-box;
 }
 
-.detailed-card-profile {
+.detailedCardProfile {
   min-width: unset;
   width: 100%;
   padding: unset;
@@ -58,16 +58,16 @@
   gap: 0.5rem;
 }
 
-.detailed-card-profile .applyButton {
+.detailedCardProfile .applyButton {
   padding: 0.5rem 2rem 0.5rem 2rem;
 }
 
-.detailed-card-profile > h2 {
+.detailedCardProfile > h2 {
   font-size: 1rem;
   color: white;
 }
 
-.detailed-card-profile > img {
+.detailedCardProfile > img {
   width: 4rem;
   box-shadow:
     0px 0.5px 0px 0px rgba(255, 255, 255, 0.5) inset,
@@ -75,45 +75,45 @@
     0px -2px 10px 0px rgba(233, 223, 255, 0.3);
 }
 
-.detailed-card-header {
+.detailedCardHeader {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
 
-.detailed-card-buttons {
+.detailedCardButtons {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.detailed-card-buttons button {
+.detailedCardButtons button {
   border: none;
   padding: 0;
   width: 1.7rem;
 }
 
-.detailed-card-buttons img {
+.detailedCardButtons img {
   height: 100%;
   width: 100%;
 }
 
-.detailed-card-details {
+.detailedCardDetails {
   height: 75%;
   overflow-y: auto;
 }
 
-.detailed-card-details h2 {
+.detailedCardDetails h2 {
   font-weight: 500;
   font-size: 18px;
 }
 
-.detailed-card-details p {
+.detailedCardDetails p {
   font-size: 14px;
 }
 
 @media screen and (max-width: 1500px) {
-  .detailed-card {
+  .detailedCard {
     max-width: unset;
     height: 60vh;
   }

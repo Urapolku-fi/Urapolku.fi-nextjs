@@ -5,12 +5,12 @@
   height: 4rem;
 }
 
-.social-links {
+.socialLinks {
   padding: 1rem 0 0 3rem;
   display: flex;
   gap: 0.5rem;
 }
 
-.social-links img {
+.socialLinks img {
   height: 1.5rem;
 }

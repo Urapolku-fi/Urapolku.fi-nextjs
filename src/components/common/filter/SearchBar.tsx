@@ -1,22 +1,23 @@
-import './searchBar.css';
+import styles from './searchBar.module.css';
+
 import { default as SearchSvg } from '@/components/icons/Search';
 import SingleOptionDropdown from './SingleOptionDropdown';
 
 const SearchBar = ({ searchInput, handleInputChange }: any) => {
   return (
     <>
-      <div className="search-bar">
-        <div className="search-bar-left" />
+      <div className={styles.searchBar}>
+        <div className={styles.searchBarLeft} />
         <input
-          className="search-for-a"
+          className={styles.searchForA}
           type="text"
           placeholder="Hae työtä, yritystä, tai toimialaa"
           onChange={handleInputChange}
           value={searchInput}
         />
-        <div className="line-parent">
-          <div id="experience-start" className="frame-item" />
-          <div className="experience">Kokemus</div>
+        <div className={styles.lineParent}>
+          <div id="experience-start" className={styles.frameItem} />
+          <div className={styles.experience}>Kokemus</div>
           <SingleOptionDropdown
             options={[
               'ei työkokemusta',
@@ -29,19 +30,19 @@ const SearchBar = ({ searchInput, handleInputChange }: any) => {
               'yli 10 vuotta',
             ]}
             childComponent={
-              <img className="search-bar-expand-icon" alt="" src={'/pictures/expand-arrow.png'} />
+              <img className={styles.searchBarExpandIcon} alt="" src={'/pictures/expand-arrow.png'} />
             }
           />
 
-          <div className="frame-item" />
-          <div className="color-parent">
-            <img className="color-icon" alt="" src={'/svg/map-indicator.svg'} />
-            <div className="experience">Sijainti</div>
+          <div className={styles.frameItem} />
+          <div className={styles.colorParent}>
+            <img className={styles.colorIcon} alt="" src={'/svg/map-indicator.svg'} />
+            <div className={styles.experience}>Sijainti</div>
           </div>
         </div>
-        <div className="frame-parent">Search</div>
+        <div className={styles.frameParent}>Search</div>
       </div>
-      <div className="mobile-search-bar">
+      <div className={styles.mobileSearchBar}>
         <SearchSvg />
         <input type="text" placeholder="Search" />
       </div>

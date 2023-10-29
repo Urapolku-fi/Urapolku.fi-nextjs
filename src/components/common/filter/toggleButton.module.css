@@ -1,4 +1,4 @@
-.toggle-button-toggled {
+.toggleButtonToggled {
   border-radius: 5px;
   border: #ececec solid 1px;
   background-color: #ececec;
@@ -16,7 +16,7 @@
   font-family: Montserrat;
 }
 
-.toggle-button {
+.toggleButton {
   border-radius: 5px;
   border: #ececec solid 1px;
   background-color: transparent;
@@ -34,27 +34,27 @@
   font-family: Montserrat;
 }
 
-.toggle-button-inner-text-selected {
+.toggleButtonInnerTextSelected {
   color: #040404;
 }
 
-.toggle-button-inner-text {
+.toggleButtonInnerText {
   color: #fff;
 }
 
-.for-dropdown-controls {
+.forDropdownControls {
   width: 30%;
 }
 
-.for-compare-box {
+.forCompareBox {
   background-color: white;
   width: 120px;
   height: 30px;
   padding: 10px 16px 5px;
 }
 
-.for-compare-box > .inner-text,
-.for-compare-box > .inner-text-toggled {
+.forCompareBox > .innerText,
+.forCompareBox > .innerTextToggled {
   position: relative;
   transform: translate();
 }

@@ -1,13 +1,15 @@
 'use client';
 
-import './page.css';
+import styles from './page.module.css';
+
 import { useEffect } from 'react';
 import getObserver from '@/components/animations/observer';
+import { default as cm } from '@/lib/classMerge';
 
 export default function Page() {
   useEffect(() => {
-    const elements = document.querySelectorAll('.hidden');
-    const observer = getObserver();
+    const elements = document.querySelectorAll('.' + styles.hidden);
+    const observer = getObserver(styles.show);
     elements.forEach((el) => observer.observe(el));
 
     // Clean up the observer when the component unmounts
@@ -18,41 +20,41 @@ export default function Page() {
 
   return (
     <>
-      <section id="s2" className="hidden">
-        <div id="Hero-stack">
-          <div className="Small-container">
-            <div className="Title-section hidden">
-              <div className="Pill">
+      <section id={styles.s2} className={styles.hidden}>
+        <div id={styles.heroStack}>
+          <div className={styles.smallContainer}>
+            <div className={cm(styles.titleSection, styles.hidden)}>
+              <div className={styles.pill}>
                 <p>Kaikki työpaikat - ja myös niiden palkat</p>
               </div>
-              <div className="Content hidden">
+              <div className={cm(styles.content, styles.hidden)}>
                 <h1>Yhdellä haulla urapolulta löydät kaikki avoimet työpaikat.</h1>
-                <div className="Paragraph-wrapper">
+                <div className={styles.paragraphWrapper}>
                   <p>
                     Urapolku on työnetsimisalusta, joka tarjoaa sinulle nopean ja tehokkaan tavan
                     löytää juuri sinulle sopivia työpaikkoja.
                   </p>
                 </div>
               </div>
-              <div className="Actions">
-                <button className="Download">Rekisteröidy</button>
-                <button className="Open-jobs">Avoimet työpaikat</button>
+              <div className={styles.actions}>
+                <button className={styles.download}>Rekisteröidy</button>
+                <button className={styles.openJobs}>Avoimet työpaikat</button>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section id="s3" className="hidden">
-        <div id="Content">
-          <div className="Video">
+      <section id={styles.s3} className={styles.hidden}>
+        <div id={styles.content}>
+          <div className={styles.video}>
             <img src={'/pictures/video.png'} alt="" />
           </div>
         </div>
       </section>
-      <section id="s4" className="hidden">
-        <div id="Middle-section">
-          <div className="Middle-section-title">
-            <div className="Middle-title-wrapper">
+      <section id={styles.s4} className={styles.hidden}>
+        <div id={styles.middleSection}>
+          <div className={styles.middleSectionTitle}>
+            <div className={styles.middleTitleWrapper}>
               <h2>Teemme uran löytämisestä sinulle helpompaa!</h2>
             </div>
             <p>
@@ -60,13 +62,13 @@ export default function Page() {
             </p>
           </div>
         </div>
-        <div className="Middle-section-columns">
-          <div className="Middle-section-column">
-            <div className="Middle-section-card-wrapper">
-              <div className="Middle-section-icon-wrapper">
+        <div className={styles.middleSectionColumns}>
+          <div className={styles.middleSectionColumn}>
+            <div className={styles.middleSectionCardWrapper}>
+              <div className={styles.middleSectionIconWrapper}>
                 <img src="/pictures/Urapolku_AI_logo.png" alt="" />
               </div>
-              <div className="Middle-section-card-content">
+              <div className={styles.middleSectionCardContent}>
                 <h2>Urapolku AI</h2>
                 <p>
                   Urapolku AI on innovatiivinen työkalu, joka auttaa sinua löytämään oikean urapolun
@@ -77,17 +79,17 @@ export default function Page() {
                   itselleen sopivan urapolun.
                 </p>
               </div>
-              <div className="Middle-section-button">
+              <div className={styles.middleSectionButton}>
                 <button>Lue lisää</button>
               </div>
             </div>
           </div>
-          <div className="Middle-section-column">
-            <div className="Middle-section-card-wrapper">
-              <div className="Middle-section-icon-wrapper">
-                <img src={'/pictures/Digital-image.png'} alt="" className="" />
+          <div className={styles.middleSectionColumn}>
+            <div className={styles.middleSectionCardWrapper}>
+              <div className={styles.middleSectionIconWrapper}>
+                <img src={'/pictures/Digital-image.png'} alt="" />
               </div>
-              <div className="Middle-section-card-content">
+              <div className={styles.middleSectionCardContent}>
                 <h2>Digital Credit Tokens</h2>
                 <p>
                   Reward your customers and incentivize engagement with our innovative digital
@@ -95,16 +97,16 @@ export default function Page() {
                   flexible and scalable way to drive customer loyalty and encourage repeat business.
                 </p>
               </div>
-              <div className="Middle-section-button">
+              <div className={styles.middleSectionButton}>
                 <button>View dashboard</button>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section id="s5" className="hidden">
-        <div id="Lower-container">
-          <div className="Lower-container-content">
+      <section id={styles.s5} className={styles.hidden}>
+        <div id={styles.lowerContainer}>
+          <div className={styles.lowerContainerContent}>
             <h2>Tietoa Urapolusta</h2>
             <p>
               Etsitpä sitten töitä tai haluat löytää uusia työntekijöitä, me tarjoamme sinulle
@@ -117,44 +119,44 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="s6" className="hidden">
-        <div id="Footer">
-          <div className="Footer-container">
-            <div className="Footer-3columns">
-              <div className="Footer-first-column">
-                <div className="Footer-link-wrapper">
+      <section id={styles.s6} className={styles.hidden}>
+        <div id={styles.footer}>
+          <div className={styles.footerContainer}>
+            <div className={styles.footer_3columns}>
+              <div className={styles.footerFirstColumn}>
+                <div className={styles.footerLinkWrapper}>
                   <h2>Contact</h2>
                 </div>
-                <div className="Footer-links">
+                <div className={styles.footerLinks}>
                   <p>Work inquires: work@vaultflow.com</p>
                   <p>PR and speaking: press@vaultflow.com</p>
                   <p>New business: newbusiness@vaultflow.com</p>
                 </div>
-                <div className="Footer-link-wrapper-career">
+                <div className={styles.footerLinkWrapperCareer}>
                   <h2>Careers</h2>
                   <p>Careers@waitflow.com</p>
                 </div>
                 <p>© 2023 Urapolku. All Rights Reserved.</p>
               </div>
-              <div className="Footer-second-column">
-                <div className="Footer-second-link-wrapper">
+              <div className={styles.footerSecondColumn}>
+                <div className={styles.footerSecondLinkWrapper}>
                   <h2>Address</h2>
-                  <div className="Footer-address-wrapper">
+                  <div className={styles.footerAddressWrapper}>
                     <p>398 11th Street, Floor 2 San Francisco, CA 94103</p>
                   </div>
                 </div>
-                <div className="Footer-second-link-wrapper">
+                <div className={styles.footerSecondLinkWrapper}>
                   <h2>Socials</h2>
-                  <div className="Footer-socials">
+                  <div className={styles.footerSocials}>
                     <p>Twitter</p>
                     <p>Instagram</p>
                     <p>Tik Tok</p>
                   </div>
                 </div>
               </div>
-              <div className="Footer-third-column">
-                <div className="Footer-logo-wrapper">
-                  <div className="Footer-logo">
+              <div className={styles.footerThirdColumn}>
+                <div className={styles.footerLogoWrapper}>
+                  <div className={styles.footerLogo}>
                     <img src={'/pictures/urapolku.png'} alt="" />
                     <h2>Urapolku</h2>
                   </div>

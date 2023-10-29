@@ -1,7 +1,7 @@
-import './filterlabel.css';
+import styles from './filterLabel.module.css';
 
 const FilterLabel = ({ text }: any) => {
-  return <div className="filter-label">{text}</div>;
+  return <div className={styles.filterLabel}>{text}</div>;
 };
 
 export default FilterLabel;

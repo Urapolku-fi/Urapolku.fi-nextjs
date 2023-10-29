@@ -1,9 +1,9 @@
-import './applyButton.css';
+import styles from './applyNow.module.css';
 
 export const ApplyNow = ({ link }: any) => {
   return (
     <>
-      <a className="applyButton" href={link} target="_blank" rel="noreferrer">
+      <a className={styles.applyButton} href={link} target="_blank" rel="noreferrer">
         Apply now
       </a>
     </>

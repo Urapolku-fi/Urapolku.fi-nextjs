@@ -1,10 +1,10 @@
-import './skillsGroup.css';
+import styles from './skillsGroup.module.css';
 
 export const SkillsGroup = ({ skills }: any) => {
   return (
-    <div className="skillsGroup">
-      <h2 className="skillsGroup-header">Key Skills</h2>
-      <div className="skillsGroup-skills">
+    <div className={styles.skillsGroup}>
+      <h2 className={styles.skillsGroupHeader}>Key Skills</h2>
+      <div className={styles.skillsGroupSkills}>
         {skills.map((skill: any, i: number) => (
           <div key={i}>{skill}</div>
         ))}

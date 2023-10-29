@@ -1,8 +1,8 @@
-const getObserver = () => {
+const getObserver = (showClassName: string) => {
   return new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('show');
+        entry.target.classList.add(showClassName);
       }
     });
   });

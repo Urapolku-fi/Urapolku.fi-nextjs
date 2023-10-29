@@ -1,6 +1,7 @@
 //TODO: move to core components
 
-import './toggleButton.css';
+import styles from './toggleButton.module.css';
+import { default as cm } from '@/lib/classMerge';
 
 const ToggleButton = ({
   text,
@@ -15,27 +16,27 @@ const ToggleButton = ({
         <button
           className={
             forDropdownControls
-              ? 'toggle-button-toggled for-dropdown-controls'
+              ? cm(styles.toggleButtonToggled, styles.forDropdownControls)
               : forCompareBox
-              ? 'toggle-button-toggled for-compare-box'
-              : 'toggle-button-toggled'
+              ? cm(styles.toggleButtonToggled, styles.forCompareBox)
+              : styles.toggleButtonToggled
           }
           onClick={onClick}
         >
-          <div className="toggle-button-inner-text-toggled">{text}</div>
+          <div className={styles.toggleButtonInnerTextToggled}>{text}</div>
         </button>
       ) : (
         <button
           className={
             forDropdownControls
-              ? 'toggle-button for-dropdown-controls'
+              ? cm(styles.toggleButton, styles.forDropdownControls)
               : forCompareBox
-              ? 'toggle-button for-compare-box'
-              : 'toggle-button'
+              ? cm(styles.toggleButton, styles.forCompareBox)
+              : styles.toggleButton
           }
           onClick={onClick}
         >
-          <div className="toggle-button-inner-text">{text}</div>
+          <div className={styles.toggleButtonInnerText}>{text}</div>
         </button>
       )}
     </>

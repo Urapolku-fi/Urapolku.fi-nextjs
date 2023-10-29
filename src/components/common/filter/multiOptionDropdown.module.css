@@ -1,4 +1,4 @@
-.multi-option-dropdown {
+.multiOptionDropdown {
   width: 25rem;
   height: 30rem;
   position: absolute;
@@ -30,7 +30,7 @@
   pointer-events: none;
 }
 
-.sticky-dropdown-controls {
+.stickyDropdownControls {
   position: relative;
   box-sizing: border-box;
   top: 30rem;
@@ -47,31 +47,31 @@
     0px 4px 7px rgba(233, 223, 255, 0.3);
 }
 
-.whitespace-under-dropdown-controls {
+.whitespaceUnderDropdownControls {
   height: 10px;
   background-color: #0b0121;
 }
 
-.dropdown-controls-container {
+.dropdownControlsContainer {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
 
-.dropdown-flex-container {
+.dropdownFlexContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.filter-label-container {
+.filterLabelContainer {
   width: 80%;
   margin-top: 20px;
   margin-bottom: 5px;
   margin-left: 23px;
 }
 
-.multi-option-dropdown-togglebutton-container {
+.multiOptionDropdownTogglebuttonContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -79,6 +79,6 @@
   margin-top: 0.5rem;
 }
 
-.dropdown-container {
+.dropdownContainer {
   height: 0;
 }

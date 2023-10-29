@@ -1,10 +1,10 @@
-.multipoint-slider {
+.multipointSlider {
   height: 1rem;
   display: flex;
   align-items: center;
 }
 
-.multipoint-slider-thumb-container {
+.multipointSliderThumbContainer {
   transform: translateY(-1rem);
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
   outline: none;
 }
 
-.multipoint-slider-thumb {
+.multipointSliderThumb {
   background-color: #0b0121;
   width: 1rem;
   height: 1rem;
@@ -25,40 +25,40 @@
   cursor: grab;
 }
 
-.multipoint-slide-thumb-headsup-value {
+.multipointSlideThumbHeadsupValue {
   color: white;
   margin-bottom: 0.75rem;
 }
 
-.multipoint-slider-track {
+.multipointSliderTrack {
   background-color: white;
   height: 0.1rem;
 }
 
-.multipoint-slider-mark {
+.multipointSliderMark {
   background-color: rgba(255, 255, 255, 0.301);
   height: 1rem;
   width: 0.1rem;
 }
 
-.multipoint-input-wrapper {
+.multipointInputWrapper {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
 }
 
-.multipoint-input-text-fields {
+.multipointInputTextFields {
   display: flex;
   overflow: hidden;
   flex-wrap: nowrap;
   justify-content: space-between;
 }
 
-.multipoint-input-text-fields p {
+.multipointInputTextFields p {
   color: white;
 }
 
-.multipoint-input-text-fields input {
+.multipointInputTextFields input {
   width: 6rem;
   padding: 0.7rem;
   border-radius: 0.5rem;
@@ -68,8 +68,8 @@
   -moz-appearance: textfield;
 }
 
-.multipoint-input-text-fields input::-webkit-inner-spin-button,
-.multipoint-input-text-fields input::-webkit-outer-spin-button {
+.multipointInputTextFields input::-webkit-inner-spin-button,
+.multipointInputTextFields input::-webkit-outer-spin-button {
   margin: 0;
   -webkit-appearance: none;
 }

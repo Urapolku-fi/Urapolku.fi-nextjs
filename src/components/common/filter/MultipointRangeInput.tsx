@@ -1,6 +1,7 @@
+import styles from './multipointRangeInput.module.css';
+
 import { useContext, useState } from 'react';
 import ReactSlider from 'react-slider'; //TODO: might need to change this since the marks and track length are bugged
-import './multipointRangeInput.css';
 import FilterLabel from './FilterLabel';
 import { FilterContext } from './Filter';
 
@@ -29,7 +30,7 @@ const MultipointRangeInput = (props: any) => {
       //comes from text inputs
       const value = parseInt(values.target.value);
       if (value <= props.maxValue && value >= props.minValue) {
-        if (values.target.className === 'min-text') setMinValue(value);
+        if (values.target.className === styles.minText) setMinValue(value);
         else setMaxValue(value);
         setFiltersState({ ...filtersState, salary: [minValue, maxValue] });
       }
@@ -39,12 +40,12 @@ const MultipointRangeInput = (props: any) => {
   return (
     <div>
       {props.label && <FilterLabel text={props.label} />}
-      <div className="multipoint-input-wrapper">
+      <div className={styles.multipointInputWrapper}>
         <ReactSlider
-          className="multipoint-slider"
-          markClassName="multipoint-slider-mark"
-          thumbClassName="multipoint-slider-thumb-container"
-          trackClassName="multipoint-slider-track"
+          className={styles.multipointSlider}
+          markClassName={styles.multipointSliderMark}
+          thumbClassName={styles.multipointSliderThumbContainer}
+          trackClassName={styles.multipointSliderTrack}
           min={props.minValue}
           max={props.maxValue}
           marks={props.marks}
@@ -57,8 +58,8 @@ const MultipointRangeInput = (props: any) => {
 
             return (
               <div key={state.index} {...props}>
-                <div className="multipoint-slide-thumb-headsup-value">{state.valueNow}</div>
-                <div className="multipoint-slider-thumb" />
+                <div className={styles.multipointSlideThumbHeadsupValue}>{state.valueNow}</div>
+                <div className={styles.multipointSliderThumb} />
               </div>
             );
           }}
@@ -67,14 +68,14 @@ const MultipointRangeInput = (props: any) => {
           minDistance={250}
           onChange={handleSliderChange}
         />
-        <div className="multipoint-input-text-fields">
+        <div className={styles.multipointInputTextFields}>
           <div>
             <p>Min.</p>
             <input
               type="number"
               value={minText}
               onChange={(e) => setMinText(e.target.value)}
-              className="min-text"
+              className={styles.minText}
               onKeyDown={handleSliderChange}
             />
           </div>
@@ -84,7 +85,7 @@ const MultipointRangeInput = (props: any) => {
               type="number"
               value={maxText}
               onChange={(e) => setMaxText(e.target.value)}
-              className="max-text"
+              className={styles.maxText}
               onKeyDown={handleSliderChange}
             />
           </div>

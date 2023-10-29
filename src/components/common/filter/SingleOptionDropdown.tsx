@@ -1,7 +1,9 @@
 // TODO: replace me with a core component 'dropdown'
+import styles from './singleOptionDropdown.module.css';
+
 import { useEffect, useState } from 'react';
-import './singleOptionDropdown.css';
 import FilterLabel from '@/components/common/filter/FilterLabel';
+import { default as cm } from '@/lib/classMerge';
 
 // options is an array of the options, they must be unique since they're being used as values
 // example: [
@@ -35,11 +37,17 @@ const SingleOptionDropdown = ({ options, childComponent, forSort, label }: any) 
       {/* //TODO: fix the styling on these buttons */}
       {label && <FilterLabel text={label} />}
       <button onClick={toggleDropdown}>{childComponent}</button>
-      <div className={`education-list ${!showDropdown ? 'hide' : ''} ${forSort ? 'for-sort' : ''}`}>
+      <div
+        className={cm(
+          styles.educationList,
+          !showDropdown ? styles.hide : '',
+          forSort ? styles.forSort : '',
+        )}
+      >
         {options.map((item: any) => (
           <button
             // value={item}
-            className={item !== value ? 'option' : 'option selected-option'}
+            className={cm(styles.option, item !== value ? '' : styles.selectedOption)}
             onClick={() => {
               handleOptionClick(item);
             }}

@@ -1,4 +1,4 @@
-.mobile-filters {
+.mobileFilters {
   position: fixed;
   height: 90%;
   width: 100vw;
@@ -9,11 +9,11 @@
   border-radius: 2rem 2rem 0 0;
 }
 
-.text-job-filter-toggle {
+.textJobFilterToggle {
   font-size: 14px;
 }
 
-.mobile-filters-thumb-wrapper {
+.mobileFiltersThumbWrapper {
   display: flex;
   border: none;
   background: none;
@@ -25,14 +25,14 @@
   padding: 0.5rem 0;
 }
 
-.mobile-filters-thumb {
+.mobileFiltersThumb {
   height: 0.3rem;
   width: 5rem;
   background-color: #392f4d;
   border-radius: 1rem;
 }
 
-.mobile-filters-header {
+.mobileFiltersHeader {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -41,19 +41,19 @@
   color: #d0ced3;
 }
 
-.mobile-filters-header p:nth-child(2) {
+.mobileFiltersHeader p:nth-child(2) {
   color: #9087a1;
   text-decoration: underline;
 }
 
-.mobile-filters-content-wrapper {
+.mobileFiltersContentWrapper {
   display: flex;
   flex-wrap: nowrap;
   border-top: #392f4d 1px solid;
   height: calc(100% - 12.1rem);
 }
 
-.mobile-filters-names {
+.mobileFiltersNames {
   width: 35vw;
   border-right: #392f4d 1px solid;
   overflow: scroll;
@@ -61,22 +61,22 @@
   flex-direction: column;
 }
 
-.mobile-filters-names button {
+.mobileFiltersNames button {
   border: none;
   background: none;
 }
 
-.mobile-filters-name {
+.mobileFiltersName {
   color: #d0ced3;
   padding: 1.3rem;
   border-bottom: #392f4d 1px solid;
 }
 
-.mobile-filters-name.active {
+.mobileFiltersName.active {
   border-left: #7c748c 3px solid;
 }
 
-.mobile-filters-values {
+.mobileFiltersValues {
   width: 65vw;
   color: #d0ced3;
   overflow: scroll;
@@ -84,7 +84,7 @@
   padding: 0.5rem;
 }
 
-.mobile-filter-list-value-item {
+.mobileFilterListValueItem {
   display: flex;
   align-items: center;
   padding: 0.3rem;
@@ -92,18 +92,18 @@
   gap: 1rem;
 }
 
-.mobile-filters-ellipse {
+.mobileFiltersEllipse {
   border-radius: 100%;
   outline: 1px solid white;
   width: 0.5rem;
   height: 0.5rem;
 }
 
-.mobile-filters-value {
+.mobileFiltersValue {
   line-height: 0;
 }
 
-.dropdown-controls-container.mobile {
+.dropdownControlsContainer.mobile {
   padding: 1.5rem 0;
   box-shadow:
     0px 2px 4px #0b0121,
@@ -114,12 +114,12 @@
   z-index: 10003;
 }
 
-.toggle-buttons-flex-container.mobile {
+.toggleButtonsFlexContainer.mobile {
   flex-direction: column;
   align-items: unset;
   padding: 0;
 }
 
-.mobile-filters.compare {
+.mobileFilters.compare {
   height: 50%;
 }

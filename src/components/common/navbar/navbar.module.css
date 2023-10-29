@@ -6,29 +6,29 @@
   align-items: center;
 }
 
-.nav-logo-wrapper {
+.navLogoWrapper {
   display: flex;
   align-items: center;
   text-decoration: none;
 }
 
-.nav-logo-wrapper p {
+.navLogoWrapper p {
   font-size: 1.7rem;
   font-weight: bolder;
   color: white;
   line-height: 0;
 }
 
-.nav-logo {
+.navLogo {
   height: 1.5rem;
 }
 
-.menu-burger-button {
+.menuBurgerButton {
   height: 1.5rem;
   width: 1.5rem;
 }
 
-.nav-items-wrapper {
+.navItemsWrapper {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -37,47 +37,47 @@
   padding-right: 2rem;
 }
 
-.nav-link {
+.navLink {
   text-decoration: none;
   color: #ececec;
   font-size: 1.2rem;
   white-space: nowrap;
 }
 
-.nav-link:hover:not(.button-filled, .button-hollow) {
+.navLink:hover:not(.buttonFilled, .buttonHollow) {
   text-decoration: underline;
   transform: translateY(-3px);
 }
 
-.menu-burger-button {
+.menuBurgerButton {
   display: none;
 }
 
-.button-hollow {
+.buttonHollow {
   border: #ececec 0.2rem solid;
   border-radius: 2rem;
   padding: 0.7rem;
   background-color: #0b0121;
 }
 
-.button-filled {
+.buttonFilled {
   background-color: #ececec;
   color: #0b0121;
   border-radius: 2rem;
   padding: 0.8rem;
 }
 
-.button-hollow:hover,
-.button-filled:hover {
+.buttonHollow:hover,
+.buttonFilled:hover {
   filter: brightness(80%);
 }
 
 @media screen and (max-width: 1000px) {
-  .menu-burger-button {
+  .menuBurgerButton {
     display: block;
   }
 
-  .nav-items-wrapper {
+  .navItemsWrapper {
     display: none;
   }
 

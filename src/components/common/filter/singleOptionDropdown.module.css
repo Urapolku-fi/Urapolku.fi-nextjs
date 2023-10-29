@@ -9,11 +9,11 @@
   cursor: pointer;
 }
 
-.selected-option {
+.selectedOption {
   font-weight: 600;
 }
 
-.education-list {
+.educationList {
   width: min-content;
   height: 163px;
   position: absolute;
@@ -38,7 +38,7 @@
     height 0.5s step-start;
 }
 
-.for-sort {
+.forSort {
   height: 92px;
   transform: translate(-70px, 20px);
 }

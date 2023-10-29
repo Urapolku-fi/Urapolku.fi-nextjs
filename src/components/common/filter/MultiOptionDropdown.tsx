@@ -1,10 +1,12 @@
 // TODO: replace with a core component
 
+import styles from './multiOptionDropdown.module.css';
+
 import { useState } from 'react';
-import './multiOptionDropdown.css';
 import Checkbox from '../../core/Checkbox/Checkbox';
 import ToggleButton from './ToggleButton';
 import FilterLabel from './FilterLabel';
+import { default as cm } from '@/lib/classMerge';
 
 const MultiOptionDropdown = ({ options, childComponent, values, setValues }: any) => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -37,9 +39,9 @@ const MultiOptionDropdown = ({ options, childComponent, values, setValues }: any
     <>
       {/* //TODO: style the button */}
       <button onClick={toggleDropdown}>{childComponent}</button>
-      <div className={`dropdown-container${showDropdown ? '' : ' hide'}`}>
-        <div className={'multi-option-dropdown'}>
-          <div className="dropdown-flex-container">
+      <div className={cm(styles.dropdownContainer, showDropdown ? '' : styles.hide)}>
+        <div className={styles.multiOptionDropdown}>
+          <div className={styles.dropdownFlexContainer}>
             {options.map((item: any) =>
               typeof item === 'string' ? (
                 <Checkbox
@@ -61,16 +63,16 @@ const MultiOptionDropdown = ({ options, childComponent, values, setValues }: any
                   }
                 />
               ) : (
-                <div className="filter-label-container" key={item[0]}>
+                <div className={styles.filterLabelContainer} key={item[0]}>
                   <FilterLabel text={item[0]} />
                 </div>
               ),
             )}
           </div>
-          <div className="whitespace-under-dropdown-controls" />
+          <div className={styles.whitespaceUnderDropdownControls} />
         </div>
-        <div className={'sticky-dropdown-controls'}>
-          <div className="dropdown-controls-container">
+        <div className={styles.stickyDropdownControls}>
+          <div className={styles.dropdownControlsContainer}>
             <ToggleButton text="clear" forDropdownControls onClick={handleClearClick} />
             <ToggleButton
               text="apply"
@@ -81,7 +83,7 @@ const MultiOptionDropdown = ({ options, childComponent, values, setValues }: any
           </div>
         </div>
       </div>
-      <div className="multi-option-dropdown-togglebutton-container">
+      <div className={styles.multiOptionDropdownTogglebuttonContainer}>
         {options
           .filter((e: any) => typeof e === 'string')
           .map((e: any, i: any) => [e, i])

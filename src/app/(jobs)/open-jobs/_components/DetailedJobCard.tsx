@@ -1,40 +1,42 @@
-import './detailedJobCard.css';
+import styles from './DetailedJobCard.module.css';
 import { ApplyNow } from './JobDetails/ApplyNow';
 import { default as LinkSvg } from '@/components/icons/Link';
 import { default as CloseSvg } from '@/components/icons/CloseMenu';
 import { default as BookmarkSvg } from '@/components/icons/Bookmark';
 import { default as ShareSvg } from '@/components/icons/Share';
+import { default as cm } from '@/lib/classMerge';
 
 const DetailedJobCard = ({ close }: any) => {
   return window.innerWidth > 750 ? (
-    <div className="detailed-card-wrapper">
-      <div className="detailed-card">
-        <section className="detailed-card-left">
-          <div className="profile detailed-card-profile">
+    <div className={styles.detailedCardWrapper}>
+      <div className={styles.detailedCard}>
+        <section className={styles.detailedCardLeft}>
+          <div className={cm(styles.profile, styles.detailedCardProfile)}>
             <img src="pictures/company-logo.jpg" alt="" className="profilePicture" />
 
-            <h2 className="profileName">University of Eastern Finland</h2>
+            <h2 className={styles.profileName}>University of Eastern Finland</h2>
 
-            <a href="/" className="profileWebsite">
+            <a href="/" className={styles.profileWebsite}>
               <LinkSvg />
               <p>Visit Website</p>
             </a>
 
             <ApplyNow link="#" />
 
-            <a href="/" className="profileReports">
+            <a href="/" className={styles.profileReports}>
               <p>Report as offline or expired</p>
             </a>
           </div>
         </section>
-        <section className="detailed-card-right">
-          <div className="detailed-card-header">
-            <div className="detailed-card-header-text-container">
+        <section className={styles.detailedCardRight}>
+          <div className={styles.detailedCardHeader}>
+            <div className={styles.detailedCardHeaderTextContainer}>
               <h2>Job Name</h2>
               <p>Full time | On Site</p>
               <p>Espoo | 35,0000 annually</p>
             </div>
-            <div className="detailed-card-buttons">
+            <div className={styles.detailedCardButtons}>
+              {/* //TODO: use Button components with icon variant */}
               <button onClick={close}>
                 <CloseSvg />
               </button>
@@ -46,7 +48,7 @@ const DetailedJobCard = ({ close }: any) => {
               </button>
             </div>
           </div>
-          <div className="detailed-card-details">
+          <div className={styles.detailedCardDetails}>
             <h2>Job Description</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

@@ -1,9 +1,11 @@
+import styles from './mobileFilter.module.css';
+
 import { useEffect, useState } from 'react';
-import './mobileFilter.css';
 import ToggleButton from './ToggleButton';
 import ButtonGroup from './ButtonGroup';
 import MultipointRangeInput from './MultipointRangeInput';
 import { Button } from '@/components/core';
+import { default as cm } from '@/lib/classMerge';
 
 const FilterListItem = ({ text, active }: any) => {
   return (
@@ -82,8 +84,8 @@ const MobileFilters = ({ filtersState, setFiltersState, categoryNames }: MobileF
   const [activeFilter, setActiveFilter] = useState(Object.keys(filtersState)[0].toLowerCase());
 
   useEffect(() => {
-    if (open) document.body.classList.add('stop-scrolling');
-    else document.body.classList.remove('stop-scrolling');
+    if (open) document.body.classList.add(styles.stopScrolling);
+    else document.body.classList.remove(styles.stopScrolling);
   }, [open]);
 
   const changeActiveCategory = (e: any) => {
@@ -93,30 +95,35 @@ const MobileFilters = ({ filtersState, setFiltersState, categoryNames }: MobileF
 
   return (
     <div>
-      <Button variant='skeleton' className="text-job-filter-toggle" onClick={() => setOpen(true)}>
+      <Button
+        variant="skeleton"
+        className={styles.textJobFilterToggle}
+        onClick={() => setOpen(true)}
+      >
         Filters
       </Button>
       {open && (
-        <div className="mobile-filters">
+        <div className={styles.mobileFilters}>
           {/* //TODO: restyle this button */}
           <button
-            className="mobile-filters-thumb-wrapper" //this exists because the part is too small to grab otherwise
+            className={styles.mobileFiltersThumbWrapper} //this exists because the part is too small to grab otherwise
             onClick={() => setOpen(false)}
           >
-            <div className="mobile-filters-thumb"></div>{' '}
+            <div className={styles.mobileFiltersThumb}></div>
           </button>
 
-          <div className="mobile-filters-header">
+          <div className={styles.mobileFiltersHeader}>
             <p>Filters</p>
             <p>Clear all</p>
           </div>
-          <div className="mobile-filters-content-wrapper">
-            <div className="mobile-filters-names">
+          <div className={styles.mobileFiltersContentWrapper}>
+            <div className={styles.mobileFiltersNames}>
               {categoryNames.map((filterName: any) => (
                 //TODO: restyle this button
+                //TODO: css modules might cause problems here
                 <button
                   onClick={changeActiveCategory}
-                  className={`mobile-filters-name ${
+                  className={`${styles.mobileFiltersName}} ${
                     filterName.replace(' ', '').toLowerCase() === activeFilter ? 'active' : ''
                   }`}
                   id={filterName}
@@ -126,7 +133,7 @@ const MobileFilters = ({ filtersState, setFiltersState, categoryNames }: MobileF
                 </button>
               ))}
             </div>
-            <div className="mobile-filters-values">
+            <div className={styles.mobileFiltersValues}>
               <ListItems
                 activeFilter={activeFilter}
                 filtersState={filtersState}
@@ -134,7 +141,7 @@ const MobileFilters = ({ filtersState, setFiltersState, categoryNames }: MobileF
               />
             </div>
           </div>
-          <div className="dropdown-controls-container mobile">
+          <div className={cm(styles.dropdownControlsContainer, styles.mobile)}>
             <ToggleButton text="clear" selected={false} forDropdownControls />
             <ToggleButton text="apply" selected={true} forDropdownControls />
           </div>

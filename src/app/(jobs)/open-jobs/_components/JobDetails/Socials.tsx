@@ -1,4 +1,4 @@
-import './socials.css';
+import styles from './socials.module.css';
 
 import LinkedIn from '@/components/icons/LinkedIn';
 import Facebook from '@/components/icons/Facebook';
@@ -7,8 +7,8 @@ import Twitter from '@/components/icons/Twitter';
 
 export const Socials = () => {
   return (
-    <div className="socials">
-      <div className="social-links">
+    <div className={styles.socials}>
+      <div className={styles.socialLinks}>
         <LinkedIn />
         <Facebook />
         <Instagram />

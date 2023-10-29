@@ -2,17 +2,17 @@
   max-width: 50rem;
 }
 
-.skillsGroup-header {
+.skillsGroupHeader {
   margin-bottom: 1rem;
 }
 
-.skillsGroup-skills {
+.skillsGroupSkills {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-.skillsGroup-skills > div {
+.skillsGroupSkills > div {
   padding: 0.5rem 1.5rem;
   border: 0.1rem solid white;
   border-radius: 0.4rem;

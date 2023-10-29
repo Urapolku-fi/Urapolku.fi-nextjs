@@ -1,14 +1,14 @@
 'use client';
 
+import styles from './navbar.module.css';
+
 import { useState, createContext, useContext, Context } from 'react';
-import './navbar.css';
 import MenuIcon from '@/components/icons/MenuIcon';
-// import CloseMenu from '@/components/icons/CloseMenu'; ???
-// import { useAuth0 } from '@auth0/auth0-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { Button } from '@/components/core';
+import { default as cm } from '@/lib/classMerge';
 
 const NavMenuContext: Context<any> = createContext(undefined);
 
@@ -34,14 +34,14 @@ const MenuButton = () => {
     <>
       {vizContext?.sideBarVisible ? (
         <button
-          className="menu-burger-button"
+          className={styles.menuBurgerButton}
           onClick={() => vizContext?.setSideBarVisible(!vizContext?.sideBarVisible)}
         >
           <MenuIcon />
         </button>
       ) : (
         <button
-          className="menu-burger-button"
+          className={styles.menuBurgerButton}
           onClick={() => vizContext?.setSideBarVisible(!vizContext?.sideBarVisible)}
         >
           <MenuIcon />
@@ -53,7 +53,7 @@ const MenuButton = () => {
 
 const NavLink = ({ styling = '', ...props }) => {
   return (
-    <Link href={props.link} className={`nav-link${styling}`}>
+    <Link href={props.link} className={cm(styles.navLink, styling)}>
       {props.text}
     </Link>
   );
@@ -101,12 +101,12 @@ const NavBarLayout = (props: any) => {
       }}
     >
       {navbarVisible && (
-        <header className="navbar">
-          <a href="/" className="nav-logo-wrapper">
-            <img className="nav-logo" alt="logo of urapolku" src={'/pictures/urapolku.png'} />
+        <header className={styles.navbar}>
+          <a href="/" className={styles.navLogoWrapper}>
+            <img className={styles.navLogo} alt="logo of urapolku" src={'/pictures/urapolku.png'} />
             <p>Urapolku</p>
           </a>
-          <div className="nav-items-wrapper">
+          <div className={styles.navItemsWrapper}>
             {navbarMenuItems.map((item: any) => (
               <NavLink key={item.link} link={item.link} text={item.text} styling={item.styling} />
             ))}

@@ -1,11 +1,11 @@
-.search-bar-left {
+.searchBarLeft {
   height: 100%;
   flex-grow: 1;
   box-sizing: border-box;
   overflow: hidden;
 }
 
-.search-for-a {
+.searchForA {
   outline: none;
   color: #a39bb4;
   border: none;
@@ -16,7 +16,7 @@
   line-height: 150%;
 }
 
-.search-for-a:focus {
+.searchForA:focus {
   color: white;
 }
 
@@ -25,7 +25,7 @@
   line-height: 150%;
 }
 
-.search-bar-expand-icon {
+.searchBarExpandIcon {
   position: relative;
   width: 24px;
   height: 24px;
@@ -33,7 +33,7 @@
   flex-shrink: 0;
 }
 
-.frame-item {
+.frameItem {
   position: relative;
   border-right: 1px solid #ececec;
   box-sizing: border-box;
@@ -41,13 +41,13 @@
   height: 100%;
 }
 
-.color-icon {
+.colorIcon {
   position: relative;
   width: 12.63px;
   height: 16.92px;
 }
 
-.color-parent {
+.colorParent {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -56,7 +56,7 @@
   padding-right: 1rem;
 }
 
-.line-parent {
+.lineParent {
   height: 99.04%;
   display: flex;
   flex-direction: row;
@@ -65,7 +65,7 @@
   gap: 12px;
 }
 
-.frame-inner {
+.frameInner {
   position: relative;
   border-radius: 0px 30px 30px 0px;
   background-color: #ececec;
@@ -83,7 +83,7 @@
   z-index: 1;
 }
 
-.frame-parent {
+.frameParent {
   height: 100%;
   width: 8rem;
   line-height: 3rem;
@@ -93,7 +93,7 @@
   border-radius: 0 30px 30px 0;
 }
 
-.search-bar {
+.searchBar {
   position: relative;
   display: flex;
   top: 80px;
@@ -108,7 +108,7 @@
   border-radius: 30px;
 }
 
-.mobile-search-bar {
+.mobileSearchBar {
   display: none;
   align-items: center;
   padding: 0.7rem;
@@ -123,7 +123,7 @@
   overflow: hidden;
 }
 
-.mobile-search-bar input {
+.mobileSearchBar input {
   background-color: transparent;
   color: white;
   border: none;
@@ -132,29 +132,29 @@
   flex-grow: 1;
 }
 
-.mobile-search-bar img {
+.mobileSearchBar img {
   height: 1.5rem;
   filter: invert(1);
 }
 
 @media screen and (max-width: 900px) {
-  .search-bar {
+  .searchBar {
     width: 90vw;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .search-bar {
+  .searchBar {
     top: 0;
   }
 }
 
 @media screen and (max-width: 650px) {
-  .search-bar {
+  .searchBar {
     display: none;
   }
 
-  .mobile-search-bar {
+  .mobileSearchBar {
     display: flex;
     flex-direction: row;
   }
