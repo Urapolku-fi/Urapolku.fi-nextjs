@@ -34,9 +34,8 @@ const SingleOptionDropdown = ({ options, childComponent, forSort, label }: any) 
 
   return (
     <div>
-      {/* //TODO: fix the styling on these buttons */}
       {label && <FilterLabel text={label} />}
-      <button onClick={toggleDropdown}>{childComponent}</button>
+      <button className={styles.openButton} onClick={toggleDropdown}>{childComponent}</button>
       <div
         className={cm(
           styles.educationList,

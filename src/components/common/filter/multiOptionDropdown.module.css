@@ -82,3 +82,8 @@
 .dropdownContainer {
   height: 0;
 }
+
+.openButton {
+  background: none;
+  border: none;
+}

@@ -7,6 +7,9 @@
   align-items: center;
   width: 134px;
   cursor: pointer;
+
+  border-color: transparent;
+  background-color: transparent;
 }
 
 .selectedOption {
@@ -47,4 +50,10 @@
   opacity: 0;
   height: 0;
   transition-timing-function: linear, step-end;
+}
+
+.openButton {
+  background: none;
+  border: none;
+  color: #ececec;
 }
