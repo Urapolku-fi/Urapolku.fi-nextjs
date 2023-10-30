@@ -22,11 +22,13 @@ module.exports = {
     // Code Quality Guidelines
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/prop-types': [0], // Disabling prop-types rule for now
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
+    ],
 
     // Add more code quality and security rules as needed
     'no-console': 'error', // Prevent the use of console.log, consider using proper logging
-
-    '@typescript-eslint/no-explicit-any': 'off', //TODO: Remove this rule later
 
     // Accessibility Guidelines
     // Ensure your code follows accessibility best practices

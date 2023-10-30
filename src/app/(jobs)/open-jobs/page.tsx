@@ -34,8 +34,8 @@ function Page() {
     setComparedJobs([]);
   };
 
-  const removeComparedJobById = (id: any) => {
-    setComparedJobs(comparedJobs.filter((e: any) => e.id !== id));
+  const removeComparedJobById = (id: number) => {
+    setComparedJobs(comparedJobs.filter((e) => e.id !== id));
   };
 
   const exampleData = {

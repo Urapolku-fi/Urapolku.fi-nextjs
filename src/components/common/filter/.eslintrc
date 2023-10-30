@@ -1,0 +1,6 @@
+// Just to override allow any
+{
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off"
+  }
+}

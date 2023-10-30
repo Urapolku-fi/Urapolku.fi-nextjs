@@ -25,7 +25,7 @@ const JobCard = ({ data, comparedJobs, setComparedJobs }: JobCardProps) => {
 
   useEffect(() => {
     if (checkbox.checked) setComparedJobs([...comparedJobs, data]);
-    else setComparedJobs(comparedJobs.filter((job: any) => job.id !== data.id));
+    else setComparedJobs(comparedJobs.filter((job) => job.id !== data.id));
   }, [checkbox.checked, comparedJobs, data, setComparedJobs]);
 
   return (

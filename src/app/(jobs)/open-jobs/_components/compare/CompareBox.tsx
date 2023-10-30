@@ -9,7 +9,7 @@ interface ICompareBoxProps {
   comparables: JobCardData[];
   clearComparables: () => void;
   hidden: boolean;
-  removeComparedJobById: (id: any) => void;
+  removeComparedJobById: (id: number) => void;
 }
 
 const CompareBox = ({

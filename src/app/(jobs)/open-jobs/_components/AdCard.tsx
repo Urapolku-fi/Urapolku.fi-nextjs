@@ -1,6 +1,10 @@
 import styles from './adCard.module.css';
 
-const AdCard = ({ text }: any) => {
+interface IAdCardProps {
+  text: string;
+}
+
+const AdCard = ({ text }: IAdCardProps) => {
   return (
     <div className={styles.adCard}>
       <div className={styles.adCardOverlay}>

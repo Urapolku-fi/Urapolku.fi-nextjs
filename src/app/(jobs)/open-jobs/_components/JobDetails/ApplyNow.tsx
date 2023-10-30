@@ -1,6 +1,10 @@
 import styles from './applyNow.module.css';
 
-export const ApplyNow = ({ link }: any) => {
+interface IApplyNowProps {
+  link: string;
+}
+
+export const ApplyNow = ({ link }: IApplyNowProps) => {
   return (
     <>
       <a className={styles.applyButton} href={link} target="_blank" rel="noreferrer">

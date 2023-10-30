@@ -1,5 +1,10 @@
 import { useState } from 'react';
 
+interface IValues {
+  title: string;
+  values: string[];
+}
+
 /**
  * A custom hook for managing a multi-select dropdown.
  * @param {Array} values - An array of objects representing the available options for the dropdown.
@@ -11,7 +16,7 @@ import { useState } from 'react';
  * @returns {boolean} isOpen - The current state of the dropdown.
  * @returns {function} toggle - A function to toggle the dropdown state.
  */
-export default function useMultiDropdown(values: any) {
+export default function useMultiDropdown(values: IValues[]) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleIsOpen = () => setIsOpen(!isOpen);
   const [selected, setSelected] = useState([]);

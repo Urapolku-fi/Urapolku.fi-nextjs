@@ -6,7 +6,11 @@ import { default as BookmarkSvg } from '@/components/icons/Bookmark';
 import { default as ShareSvg } from '@/components/icons/Share';
 import { default as cm } from '@/lib/classMerge';
 
-const DetailedJobCard = ({ close }: any) => {
+interface IDetailedJobCardProps {
+  close: () => void;
+}
+
+const DetailedJobCard = ({ close }: IDetailedJobCardProps) => {
   return window.innerWidth > 750 ? (
     <div className={styles.detailedCardWrapper}>
       <div className={styles.detailedCard}>

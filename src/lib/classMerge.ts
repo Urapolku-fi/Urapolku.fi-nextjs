@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 //FROM: https://github.com/lukeed/clsx/blob/master/src/index.js
 
 type ClassValue = ClassArray | ClassDictionary | string | number | null | boolean | undefined;

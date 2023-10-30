@@ -10,9 +10,19 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 import { Button } from '@/components/core';
 import { default as cm } from '@/lib/classMerge';
 
-const NavMenuContext: Context<any> = createContext(undefined);
+interface INavBarContext {
+  sideBarVisible: boolean;
+  setSideBarVisible: (visible: boolean) => void;
+}
 
-const navbarMenuItems = [
+const NavMenuContext: Context<INavBarContext> = createContext({
+  sideBarVisible: false,
+  setSideBarVisible: (_visible: boolean) => {},
+} as INavBarContext);
+
+type NavbarMenuItem = { text: string; link: string };
+
+const navbarMenuItems: NavbarMenuItem[] = [
   {
     text: 'Avoimet Työpaikat',
     link: '/open-jobs',
@@ -28,7 +38,7 @@ const navbarMenuItems = [
 ];
 
 const MenuButton = () => {
-  const vizContext: any = useContext(NavMenuContext);
+  const vizContext: INavBarContext | undefined = useContext(NavMenuContext);
 
   return (
     <>
@@ -82,7 +92,11 @@ const NavLink = ({ styling = '', ...props }) => {
 //   );
 // };
 
-const NavBarLayout = (props: any) => {
+interface INavBarLayoutProps {
+  children?: React.JSX.Element;
+}
+
+const NavBarLayout = (props: INavBarLayoutProps) => {
   const [sideBarVisible, setSideBarVisible] = useState(false);
   const [navbarVisible] = useState(true);
   const { user } = useUser();
@@ -107,8 +121,8 @@ const NavBarLayout = (props: any) => {
             <p>Urapolku</p>
           </a>
           <div className={styles.navItemsWrapper}>
-            {navbarMenuItems.map((item: any) => (
-              <NavLink key={item.link} link={item.link} text={item.text} styling={item.styling} />
+            {navbarMenuItems.map((item: NavbarMenuItem) => (
+              <NavLink key={item.link} link={item.link} text={item.text} />
             ))}
 
             {user ? (
