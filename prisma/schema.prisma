@@ -1,0 +1,106 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  OWNER
+  EDITOR
+  VIEWER
+  CUSTOMIZED
+}
+
+enum AccountType {
+  ADMIN
+  CANDIDATE
+  EMPLOYER
+}
+
+enum Capability {
+  CREATE_USER_TYPE
+  UPDATE_USER_TYPE
+  DELETE_USER_TYPE
+
+  CREATE_USER
+  UPDATE_USER
+  DELETE_USER
+
+  ASSIGN_CAPABILITY
+  REMOVE_CAPABILITY
+}
+
+enum LocationType {
+  ON_SITE
+  REMOTE
+  HYBRID
+  OTHER
+  FLEXIBLE
+  TRAVEL_REQUIRED
+  OFFSHORE
+  ONSHORE
+  FIELD_WORK
+  CLIENT_SITE
+  TELECOMMUTE
+  VIRTUAL
+  CO_WORKING_SPACE
+  REGIONAL
+  INTERNATIONAL
+  HOME_BASED
+  MOBILE
+  TEMPORARY_LOCATION
+  SATELLITE_OFFICE
+  MULTIPLE_LOCATIONS
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  FREELANCE
+  CONTRACT
+  SELF_EMPLOYED
+  TEMPORARY
+  INTERNSHIP
+  VOLUNTEER
+  ON_CALL
+  APPRENTICESHIP
+  SEASONAL
+  PROJECT_BASED
+  OTHER
+}
+
+model UserType {
+  id      String   @id @default(cuid()) @map("_id") @db.ObjectId
+  name    String
+  userIds String[] @db.ObjectId
+  users   User[]   @relation(fields: [userIds], references: [id])
+}
+
+model User {
+  id    String @id @default(cuid()) @map("_id") @db.ObjectId
+  email String @unique
+
+  name           String
+  profilePicture String
+  bannerPuicture String
+  description    String
+  industry       String
+
+  skills         String[]
+  title          String?
+  employmentType String?
+  location       String?
+  locationType   LocationType[]
+
+  role        UserRole
+  accountType AccountType
+
+  userTypeIds String[]   @db.ObjectId
+  userTypes   UserType[] @relation(fields: [userTypeIds], references: [id])
+}
