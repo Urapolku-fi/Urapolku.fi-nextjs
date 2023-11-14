@@ -1,0 +1,198 @@
+.mainContainer {
+  background: linear-gradient(to bottom, #673eff 0px, #0d0325 360px);
+  --company-header-height: 100px;
+  --row-height: 4em;
+  --card-padding: 1rem;
+}
+
+.hero {
+  display: flex;
+  flex-grow: 0;
+  flex-direction: column;
+  align-items: center;
+
+  padding-block: 50px;
+}
+
+.heading {
+  font-size: 80px;
+  font-weight: 500;
+  margin: 0px;
+
+  color: transparent;
+  background: linear-gradient(146deg, #ececec 20%, rgba(236, 236, 236, 0) 130%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subheading {
+  margin-bottom: 64px;
+
+  width: 75vw;
+  max-width: 600px;
+
+  text-align: center;
+  font-size: 16px;
+  color: #a39bb4;
+  line-height: 150%;
+}
+
+.compare {
+  display: flex;
+  gap: 40px;
+  justify-content: start;
+  padding-block: 1em;
+  margin: 0px 2em;
+  max-width: 100vw;
+  overflow-x: scroll;
+}
+
+.compare > * {
+  flex-shrink: 0;
+}
+
+.compareControls {
+  color: #ececec;
+  font-size: 16px;
+  line-height: 150%;
+  position: relative;
+}
+
+.compareControls > .viewDifferences {
+  display: block;
+  height: 0;
+}
+
+.compareLabels {
+  margin-top: calc(var(--card-padding) + var(--company-header-height));
+}
+
+.compareLabels > .row {
+  height: var(--row-height);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.compareCard {
+}
+
+.compareAdd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--card-padding);
+}
+
+.infoSortByContainer > div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filterCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0px 13vw;
+  gap: 40px;
+}
+
+.jobCardsContainer {
+  /* width: 100%; */
+  padding-right: 40px;
+  grid-column: 2 / span 3;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.filter {
+  width: 100%;
+  grid-row: 1 / span -1;
+  height: min-content;
+
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.mobileSearchBar {
+  display: none;
+}
+
+.infoSortByContainerMobile {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .heading {
+    font-size: 48px;
+  }
+
+  .subheading {
+    font-size: 16px;
+  }
+
+  .searchBar {
+    width: 92vw;
+  }
+
+  .filterCardsContainer {
+    padding: 0px 32px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .heading {
+    font-size: 32px;
+    font-weight: 500;
+  }
+
+  .searchBar {
+    display: none;
+  }
+
+  .mobileSearchBar {
+    display: block;
+  }
+
+  .infoSortByContainer {
+    display: none;
+  }
+
+  .infoSortByContainerMobile {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .compareIcon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .compareButton {
+    display: flex;
+    font-size: 14px;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .filterCardsContainer {
+    display: flex;
+    padding: 0px 20px;
+    margin: 0px;
+  }
+
+  .jobCardsContainer {
+    padding: 0px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter {
+    display: none;
+  }
+}
