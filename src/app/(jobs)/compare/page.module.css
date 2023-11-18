@@ -1,3 +1,4 @@
+/* TODO: cleanup */
 .mainContainer {
   background: linear-gradient(to bottom, #673eff 0px, #0d0325 360px);
   --company-header-height: 100px;
@@ -38,12 +39,20 @@
   line-height: 150%;
 }
 
+.comparisonEmpty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  min-height: 500px;
+}
+
 .compare {
   display: flex;
   gap: 40px;
-  justify-content: start;
+  justify-content: flex-start;
   padding-block: 1em;
-  margin: 0px 2em;
+  margin-left: 2em;
   max-width: 100vw;
   overflow-x: scroll;
 }
@@ -59,9 +68,12 @@
   position: relative;
 }
 
-.compareControls > .viewDifferences {
+.viewDifferences {
   display: block;
   height: 0;
+}
+.viewDifferencesMobile {
+  color: #ececec;
 }
 
 .compareLabels {
@@ -74,6 +86,7 @@
   align-items: center;
   padding: 0;
   margin: 0;
+  border-bottom: 1px solid transparent;
 }
 
 .compareCard {
@@ -126,6 +139,69 @@
   display: none;
 }
 
+.viewDifferencesMobile {
+  display: none;
+}
+
+.comparisonMobile {
+  display: none;
+  flex-direction: column;
+  max-width: 100vw;
+  overflow-x: scroll;
+}
+
+.mobileCompareLabel {
+  width: 100vw;
+  color: white;
+  padding-block: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  left: 0;
+  border: 1px solid #ececec44;
+  box-sizing: border-box;
+}
+
+.mobileCompareRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobileCompareRow > div {
+  flex-grow: 1;
+  border: 1px solid #ececec44;
+  min-width: 200px;
+  padding: 1em;
+  flex-shrink: 0;
+  color: #ececec;
+  box-sizing: border-box;
+}
+
+.mobileCompareRow > .addJob {
+  padding: 1em;
+  width: 2em;
+  height: 2em;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: 1em;
+}
+
+.companyHeader {
+  min-height: var(--company-header-height);
+  background-color: #ffffff;
+  background-image: url('/pictures/job-example-image.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  justify-content: right;
+  align-items: flex-start;
+}
+
 @media screen and (max-width: 1200px) {
   .heading {
     font-size: 48px;
@@ -145,6 +221,18 @@
 }
 
 @media screen and (max-width: 760px) {
+  .compare {
+    display: none;
+  }
+
+  .comparisonMobile {
+    display: flex;
+  }
+
+  .viewDifferencesMobile {
+    display: block;
+  }
+
   .heading {
     font-size: 32px;
     font-weight: 500;

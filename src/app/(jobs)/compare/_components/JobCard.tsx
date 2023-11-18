@@ -28,7 +28,7 @@ const JobCard = ({ data, comparedJobs, setComparedJobs }: JobCardProps) => {
             setComparedJobs(comparedJobs.filter((job) => job.id !== data.id));
           }}
         >
-          remove
+          ×
         </button>
       </div>
       <p className={styles.row}>{data.company}</p>
