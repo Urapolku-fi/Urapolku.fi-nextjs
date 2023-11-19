@@ -44,7 +44,7 @@
   justify-content: center;
   align-items: center;
   padding: 1em;
-  min-height: 500px;
+  min-height: 200px;
 }
 
 .compare {
@@ -74,6 +74,7 @@
 }
 .viewDifferencesMobile {
   color: #ececec;
+  padding: 0.5em;
 }
 
 .compareLabels {

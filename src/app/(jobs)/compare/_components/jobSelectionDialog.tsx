@@ -2,6 +2,7 @@ import styles from './jobSelectionDialog.module.css';
 import { Button } from '@/components/core';
 import { JobCardData } from './JobCard';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import Link from 'next/link';
 
 interface JobCardProps {
   isOpen: boolean;
@@ -30,7 +31,6 @@ const JobSelectionDialog = ({
   const [selectedJobId, setSelectedJobId] = useState<number | null>(null);
 
   useEffect(() => {
-    console.log('1');
     if (isOpen) {
       ref.current?.showModal();
       document.body.classList.add('modal-open'); // prevent bg scroll
@@ -40,7 +40,6 @@ const JobSelectionDialog = ({
     }
   }, [isOpen]);
   useEffect(() => {
-    console.log('2');
     if (!ref.current) return;
     const dialog = ref.current;
     dialog.addEventListener('close', () => {
@@ -50,7 +49,6 @@ const JobSelectionDialog = ({
     });
   }, [ref, setIsOpen, isOpen]);
   useEffect(() => {
-    console.log('3', selectedCompany, unselectedAvailableJobs);
     if (selectedCompany != null) {
       setSelectedJobId(null);
       setAvailableJobsAtTheCompany(
@@ -119,19 +117,23 @@ const JobSelectionDialog = ({
             ))}
           </select>
         </label>
-        <Button
-          onClick={() => {
-            if (selectedJobId == null) return;
-            const job = availableJobs.find((job) => job.id === selectedJobId);
-            if (!job) return;
-            setComparedJobs([...comparedJobs, job]);
-            setSelectedJobId(null);
-            setSelectedCompany(null);
-          }}
-          disabled={selectedJobId == null}
-        >
-          Add to comparison
-        </Button>
+        <div className={styles.actions}>
+          <Button
+            onClick={() => {
+              if (selectedJobId == null) return;
+              const job = availableJobs.find((job) => job.id === selectedJobId);
+              if (!job) return;
+              setComparedJobs([...comparedJobs, job]);
+              setSelectedJobId(null);
+              setSelectedCompany(null);
+            }}
+            disabled={selectedJobId == null}
+          >
+            Add to comparison
+          </Button>
+          <div className={styles.spacer} />
+          <Link href="javascript:alert('todo!');">Add from saved jobs</Link>
+        </div>
         <hr />
         <div className={styles.jobList}>
           {comparedJobs.map((job) => (

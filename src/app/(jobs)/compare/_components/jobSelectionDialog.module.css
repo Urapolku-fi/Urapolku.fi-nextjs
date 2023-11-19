@@ -3,6 +3,7 @@
   border-radius: 10px;
   padding: 1em;
   color-scheme: dark;
+  min-width: 50vw;
 }
 .container::backdrop {
   background-color: rgba(255, 255, 255, 0.5);
@@ -54,4 +55,26 @@
 
 .container button:disabled {
   opacity: 0.5;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 760px) {
+  .spacer {
+    display: none;
+  }
+  .actions * {
+    flex-grow: 1;
+  }
 }

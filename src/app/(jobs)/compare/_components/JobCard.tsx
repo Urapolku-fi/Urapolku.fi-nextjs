@@ -1,6 +1,7 @@
 import styles from './jobCard.module.css';
 import { Button } from '@/components/core';
 import Bookmark from '@/components/icons/Bookmark';
+import { VisibleFields } from '../page';
 
 export interface JobCardData {
   company: string;
@@ -17,9 +18,17 @@ interface JobCardProps {
   data: JobCardData;
   comparedJobs: JobCardData[];
   setComparedJobs: (newComparedJobs: JobCardData[]) => void;
+  visibleFields: VisibleFields;
+  viewDifferences: boolean;
 }
 
-const JobCard = ({ data, comparedJobs, setComparedJobs }: JobCardProps) => {
+const JobCard = ({
+  data,
+  comparedJobs,
+  setComparedJobs,
+  visibleFields,
+  viewDifferences,
+}: JobCardProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.companyHeader}>
@@ -31,12 +40,18 @@ const JobCard = ({ data, comparedJobs, setComparedJobs }: JobCardProps) => {
           ×
         </button>
       </div>
-      <p className={styles.row}>{data.company}</p>
-      <p className={styles.row}>{data.title}</p>
-      <p className={styles.row}>{data.field}</p>
-      <p className={styles.row}>{data.type}</p>
-      <p className={styles.row}>{data.salary}</p>
-      <p className={styles.row}>{data.location}</p>
+      {Object.entries(visibleFields).map(
+        ([field, { visible, highlighted }]) =>
+          visible && (
+            <p
+              className={styles.row}
+              style={{ opacity: viewDifferences && !highlighted ? 0.5 : 1 }}
+              key={field}
+            >
+              {data[field]}
+            </p>
+          ),
+      )}
       <div className={styles.buttonContainer}>
         <div className={styles.buttons}>
           <Button>See Details</Button>
