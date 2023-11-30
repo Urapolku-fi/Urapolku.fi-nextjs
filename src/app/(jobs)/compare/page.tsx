@@ -97,11 +97,10 @@ interface PageProps {
 function Page({ searchParams }: PageProps) {
   const router = useRouter();
   const comparedJobs: JobCardData[] =
-    searchParams.jobs
+    (searchParams.jobs
       ?.split(',')
       .map((jobId) => exampleData.find((job) => job.id === +jobId))
-      .filter((job) => job != null && job != undefined)
-      .forEach((job) => job!) ?? [];
+      .filter((job) => job != null && job != undefined) as JobCardData[]) ?? [];
 
   const setComparedJobs = (newComparedJobs: JobCardData[]) => {
     const newSearchParams = new URLSearchParams(searchParams);
