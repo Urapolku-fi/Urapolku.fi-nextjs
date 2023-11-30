@@ -1,0 +1,80 @@
+.container {
+  border: none;
+  border-radius: 10px;
+  padding: 1em;
+  color-scheme: dark;
+  min-width: 50vw;
+}
+.container::backdrop {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+.container * {
+  margin: 0;
+}
+
+.container .inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.container label {
+  display: flex;
+  flex-direction: column;
+}
+
+.jobList {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.job {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow:
+    0px -2px 40px 0px #4d24df5c,
+    0px -2px 10px 0px #bcb0ec45;
+}
+
+.job .details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.job button {
+  padding: 0.5em 1em;
+}
+
+.container button:disabled {
+  opacity: 0.5;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 760px) {
+  .spacer {
+    display: none;
+  }
+  .actions * {
+    flex-grow: 1;
+  }
+}

@@ -10,6 +10,7 @@ interface ButtonProps {
   dark?: boolean;
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 /**
@@ -32,6 +33,7 @@ function Button({
   dark = false,
   className: classNameProp,
   onClick = () => {},
+  disabled = false,
 }: ButtonProps) {
   const className = [];
 
@@ -50,7 +52,7 @@ function Button({
   className.push(classes.button);
 
   return (
-    <button className={cm(className, classNameProp)} onClick={onClick}>
+    <button className={cm(className, classNameProp)} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

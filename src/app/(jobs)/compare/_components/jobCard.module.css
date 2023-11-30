@@ -1,0 +1,123 @@
+/* TODO: cleanup */
+.container {
+  border-top: 1px solid #ffffff40;
+  border-radius: 20px;
+
+  box-shadow:
+    0px -2px 40px 0px rgba(187, 155, 255, 0.15),
+    0px -2px 10px 0px rgba(233, 223, 255, 0.3);
+}
+
+.companyHeader {
+  min-height: var(--company-header-height);
+  background-color: #ffffff;
+  background-image: url('/pictures/job-example-image.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  justify-content: right;
+  align-items: flex-start;
+
+  border-radius: 10px 10px 0 0;
+  /* create a circular bottom border */
+  border-bottom-left-radius: 50% 10%;
+  border-bottom-right-radius: 50% 10%;
+  padding-bottom: 20px;
+}
+
+.companyHeader > * {
+  margin: 0.5em;
+}
+
+.companyHeader > button {
+  background: transparent;
+  color: #2d2d2d;
+  border: 1px solid #2d2d2d; /* replace with text color later */
+  border-radius: 9999999999px;
+  width: 2em;
+  height: 2em;
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  scale: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.companyHeader > button:hover {
+  background: #2d2d2d;
+  color: #ffffff;
+}
+
+.companyHeader > button:active {
+  scale: 0.75;
+}
+
+.row {
+  height: var(--row-height);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  color: #ececec;
+  border-bottom: 1px solid #fff3;
+  padding-inline: var(--card-padding);
+}
+
+.imageTitleContainer {
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.imageTitleContainer > p {
+  color: #ececec;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.imageTitleContainer > img {
+  background-color: #ececec;
+  border-radius: 100%;
+}
+
+.infoContainer {
+  margin-bottom: 37px;
+}
+
+.infoContainer > * {
+  margin: 0px;
+  line-height: 150%;
+}
+
+.title {
+  font-size: 20px;
+  color: #ececec;
+  font-weight: 600;
+
+  margin-bottom: 12px;
+}
+
+.info {
+  font-size: 16px;
+  color: #a39bb4;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+  padding: var(--card-padding);
+}
+
+.buttons {
+  display: flex;
+
+  gap: 12px;
+}
