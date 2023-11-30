@@ -46,15 +46,12 @@ const exampleData: JobCardData[] = [
   },
 ];
 
-const enabledFields: Partial<keyof JobCardData>[] = [
-  'company',
-  'title',
-  'field',
-  'type',
-  'salary',
-  'location',
-];
-const fieldLabels: { [field in typeof enabledFields]: string } = {
+type EnabledFields = Pick<
+  JobCardData,
+  'company' | 'title' | 'field' | 'type' | 'salary' | 'location'
+>;
+
+const fieldLabels: { [key in keyof EnabledFields]: string } = {
   company: 'Company Name',
   title: 'Role (position)',
   field: 'Industry',
@@ -62,6 +59,7 @@ const fieldLabels: { [field in typeof enabledFields]: string } = {
   salary: 'Annual or monthly salary',
   location: 'Location',
 };
+
 function getFieldsToHighlight(comparedJobs: JobCardData[]): Partial<keyof JobCardData>[] {
   if (comparedJobs.length === 0) {
     return [];
@@ -69,10 +67,10 @@ function getFieldsToHighlight(comparedJobs: JobCardData[]): Partial<keyof JobCar
   // TODO: Implement a unique diff algorithm for each field
   // In the future we could even have a plus and minus sign to signify a better or worse offer
   const fieldsToHighlight: Partial<keyof JobCardData>[] = [];
-  for (const field of enabledFields) {
-    const values = comparedJobs.map((job) => job[field]);
+  for (const field in Object.keys(fieldLabels)) {
+    const values = comparedJobs.map((job) => Object.values(job).find((value) => value === field));
     if (!values.every((value) => value === values[0])) {
-      fieldsToHighlight.push(field);
+      fieldsToHighlight.push(field as keyof JobCardData);
     }
   }
   return fieldsToHighlight;
@@ -102,7 +100,9 @@ function Page({ searchParams }: PageProps) {
     searchParams.jobs
       ?.split(',')
       .map((jobId) => exampleData.find((job) => job.id === +jobId))
-      .filter((job) => job != null) ?? [];
+      .filter((job) => job != null && job != undefined)
+      .forEach((job) => job!) ?? [];
+
   const setComparedJobs = (newComparedJobs: JobCardData[]) => {
     const newSearchParams = new URLSearchParams(searchParams);
     newSearchParams.set('jobs', newComparedJobs.map((job) => job.id).join(','));
@@ -123,10 +123,10 @@ function Page({ searchParams }: PageProps) {
     router.push(`?${newSearchParams.toString()}`);
   };
   const fieldsToHighlight = viewDifferences ? getFieldsToHighlight(comparedJobs) : [];
-  const visibleFields = enabledFields.reduce((acc, field) => {
-    acc[field] = {
+  const visibleFields = Object.keys(fieldLabels).reduce((acc, field) => {
+    acc[field as keyof JobCardData] = {
       visible: true,
-      highlighted: fieldsToHighlight.includes(field),
+      highlighted: fieldsToHighlight.includes(field as keyof JobCardData),
     };
     return acc;
   }, {} as VisibleFields);
@@ -177,7 +177,8 @@ function Page({ searchParams }: PageProps) {
                         style={{ opacity: viewDifferences && !highlighted ? 0.5 : 1 }}
                         key={field}
                       >
-                        {fieldLabels[field]}
+                        {Object.keys(fieldLabels).includes(field) &&
+                          fieldLabels[field as keyof EnabledFields]}
                       </p>
                     ) : null,
                   )}
@@ -241,14 +242,15 @@ function Page({ searchParams }: PageProps) {
                         className={styles.mobileCompareLabel}
                         style={{ opacity: viewDifferences && !highlighted ? 0.5 : 1 }}
                       >
-                        {fieldLabels[field]}
+                        {Object.keys(fieldLabels).includes(field) &&
+                          fieldLabels[field as keyof EnabledFields]}
                       </div>
                       <div
                         className={styles.mobileCompareRow}
                         style={{ opacity: viewDifferences && !highlighted ? 0.5 : 1 }}
                       >
                         {comparedJobs.map((job) => (
-                          <div key={job.id}>{job[field]}</div>
+                          <div key={job.id}>{job[field as keyof EnabledFields]}</div>
                         ))}
                       </div>
                     </Fragment>

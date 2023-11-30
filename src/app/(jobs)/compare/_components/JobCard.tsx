@@ -48,7 +48,7 @@ const JobCard = ({
               style={{ opacity: viewDifferences && !highlighted ? 0.5 : 1 }}
               key={field}
             >
-              {data[field]}
+              {data[field as keyof JobCardData]}
             </p>
           ),
       )}
